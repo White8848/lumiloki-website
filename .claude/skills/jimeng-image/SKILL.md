@@ -107,7 +107,7 @@ export JIMENG_SECRET_KEY="xxxxxxxxxxxxxxxx"
 | `text` | string | 图片上显示的文字 |
 | `illustration` | string | 3–5 个装饰性插画关键词 |
 | `color` | string | 背景色调 |
-| `ratio` | enum | 比例：`4:3`(512×384) / `3:4`(384×512) / `16:9`(512×288) / `9:16`(288×512) |
+| `ratio` | enum | 比例：`4:3` / `3:4` / `16:9` / `9:16`（括号中的 512px 级像素仅为示例/最低档位，实际可在工具中配置更高分辨率，如 1920×1080、2560×1440 等） |
 
 ```json
 {
