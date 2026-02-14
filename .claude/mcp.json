@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "jimeng": {
+      "command": "npx",
+      "args": ["-y", "jimeng-ai-mcp"]
+    }
+  }
+}
