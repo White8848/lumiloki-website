@@ -12,7 +12,8 @@ Lumiloki 发光智能魔方品牌官网，基于 React 18 + Vite 5 + TypeScript 
 - **工具**: clsx（类名拼接）、sharp（图片压缩生成 WebP）
 - **AI 图片生成**: 即梦 API（火山引擎），通过 MCP 集成（`jimeng-mcp-v4@4.0.0`）
 - **字体**: Nunito（展示）+ Noto Sans SC（正文），Google Fonts CDN 加载
-- **无测试框架、无状态管理库、无 i18n、无后端 API**，所有数据为静态 JSON
+- **测试**: Vitest + @testing-library/react + @testing-library/jest-dom
+- **无状态管理库、无 i18n、无后端 API**，所有数据为静态 JSON
 
 ## 项目结构
 ```
@@ -28,6 +29,7 @@ src/
 ├── types/            # TypeScript 类型定义
 ├── styles/           # 全局样式（global.css, variables.css, animations.css）
 ├── assets/           # 图片资源（WebP 格式）
+├── test/             # 测试文件（setup、组件测试、路由测试）
 └── utils/            # 工具函数
 ```
 
@@ -57,6 +59,37 @@ src/
 - 示例：`feat: add Navbar component with responsive mobile menu`
 - **推送时机**：所有小任务全部完成后统一 `git push`，或用户明确要求时推送
 
+## 多人协作规范
+
+### PR 审查流程
+- AI 完成任务后创建 PR，**不直接合并到 main**
+- PR 描述需包含：
+  - **改动摘要**：本次改动的目的和内容概述
+  - **影响范围**：涉及哪些模块/页面
+  - **截图/录屏**：UI 相关变更必须附带截图
+- 合并要求：
+  - 至少 1 人 code review 后才能合并
+  - CI 检查（lint + test + build）全部通过
+  - 无未解决的 review 评论
+- PR 标题格式与提交信息一致：`<type>: <description>`
+
+### 冲突预防机制
+- **开始工作前必须同步主分支**：
+  ```bash
+  git fetch origin main
+  git rebase origin/main
+  ```
+- 如有冲突，先解决冲突再开始新任务，**不跳过冲突直接开发**
+- **高风险文件**（修改前需团队沟通确认）：
+  - `src/styles/variables.css` — CSS 变量影响全站样式
+  - `src/styles/global.css` — 全局样式
+  - `src/styles/animations.css` — 共享动画定义
+  - `src/App.tsx` — 路由配置与全局布局
+  - `src/data/*` — 共享静态数据源
+  - `package.json` — 依赖变更
+  - `vite.config.ts` — 构建配置
+- 多人并行开发时，通过 GitHub Issues 标注各自负责的文件范围，避免同时修改同一文件
+
 ## 任务执行流程
 
 ### 1. 规划阶段
@@ -80,6 +113,7 @@ src/
 1. **实现** — 完成当前小任务的代码编写
 2. **验证** — 依次运行以下检查，全部通过才算验证成功：
    - `npm run lint` — 代码规范检查
+   - `npm run test` — 单元测试（Vitest）
    - `npm run build` — TypeScript 类型检查 + 生产构建
 3. **自查** — 运行 `git diff` 审查改动，确认无调试代码（console.log）、注释掉的代码、无关改动
 4. **处理结果**：
@@ -89,7 +123,7 @@ src/
 ### 3. 构建失败修复流程
 1. 分析错误信息，定位问题原因
 2. 尝试修复（最多 3 次）
-3. 每次修复后重新运行 `npm run lint` + `npm run build` 验证
+3. 每次修复后重新运行 `npm run lint` + `npm run test` + `npm run build` 验证
 4. **修复成功** → git commit，继续下一个小任务
 5. **修复失败（3 次后仍未通过）** → 执行回退：
    - `git checkout -- .` 撤销已追踪文件的修改
@@ -121,6 +155,8 @@ src/
 - `npm run dev` — 启动开发服务器（Vite HMR）
 - `npm run build` — TypeScript 检查 + 生产构建
 - `npm run lint` — ESLint 代码检查
+- `npm run test` — 运行单元测试（Vitest，单次运行）
+- `npm run test:watch` — 运行单元测试（Vitest，监听模式）
 - `npm run preview` — 预览生产构建
 
 ## 部署
