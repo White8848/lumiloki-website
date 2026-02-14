@@ -8,5 +8,6 @@ export interface NewsArticle {
   category: NewsCategory
   date: string
   emoji: string
+  image?: string
   featured?: boolean
 }

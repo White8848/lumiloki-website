@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glow-orange">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#FF6B00" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-orange-soft">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#FF6B00" flood-opacity="0.4" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="motion-blur">
+      <feGaussianBlur stdDeviation="15,0" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="face-top-o" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a1a0a"/>
+      <stop offset="100%" stop-color="#1a0f05"/>
+    </linearGradient>
+    <linearGradient id="face-left-o" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1408"/>
+      <stop offset="100%" stop-color="#120c04"/>
+    </linearGradient>
+    <linearGradient id="face-right-o" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1c1207"/>
+      <stop offset="100%" stop-color="#0f0a03"/>
+    </linearGradient>
+    <linearGradient id="speed-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B00" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FF6B00" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFAA00" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="bg-glow-o" cx="55%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#FF6B00" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <rect width="800" height="600" fill="url(#bg-glow-o)"/>
+  <!-- Speed lines behind cube -->
+  <line x1="80" y1="220" x2="280" y2="260" stroke="url(#speed-grad)" stroke-width="2" opacity="0.5"/>
+  <line x1="50" y1="270" x2="260" y2="290" stroke="url(#speed-grad)" stroke-width="2.5" opacity="0.6"/>
+  <line x1="100" y1="320" x2="270" y2="320" stroke="url(#speed-grad)" stroke-width="1.5" opacity="0.4"/>
+  <line x1="70" y1="370" x2="280" y2="350" stroke="url(#speed-grad)" stroke-width="2" opacity="0.5"/>
+  <line x1="120" y1="410" x2="290" y2="380" stroke="url(#speed-grad)" stroke-width="1.5" opacity="0.35"/>
+  <line x1="60" y1="180" x2="250" y2="230" stroke="url(#speed-grad)" stroke-width="1" opacity="0.3"/>
+  <line x1="90" y1="440" x2="300" y2="400" stroke="url(#speed-grad)" stroke-width="1" opacity="0.25"/>
+  <!-- Tilted dynamic cube -->
+  <g transform="translate(420, 290) rotate(-8) translate(-400, -290)">
+    <!-- Top face -->
+    <polygon points="400,160 540,240 400,320 260,240" fill="url(#face-top-o)" stroke="#FF6B00" stroke-width="2" filter="url(#glow-orange)"/>
+    <!-- Left face -->
+    <polygon points="260,240 400,320 400,440 260,360" fill="url(#face-left-o)" stroke="#FF6B00" stroke-width="2" filter="url(#glow-orange)"/>
+    <!-- Right face -->
+    <polygon points="400,320 540,240 540,360 400,440" fill="url(#face-right-o)" stroke="#FF6B00" stroke-width="2" filter="url(#glow-orange)"/>
+    <!-- Diagonal speed lines on faces -->
+    <line x1="290" y1="260" x2="370" y2="310" stroke="#FFAA00" stroke-width="1" opacity="0.4"/>
+    <line x1="310" y1="270" x2="390" y2="320" stroke="#FFAA00" stroke-width="0.8" opacity="0.3"/>
+    <line x1="430" y1="270" x2="510" y2="310" stroke="#FFAA00" stroke-width="1" opacity="0.4"/>
+    <line x1="450" y1="260" x2="520" y2="290" stroke="#FFAA00" stroke-width="0.8" opacity="0.3"/>
+  </g>
+  <!-- Motion trail particles -->
+  <circle cx="200" cy="250" r="2" fill="#FF6B00" opacity="0.6" filter="url(#motion-blur)"/>
+  <circle cx="170" cy="300" r="2.5" fill="#FFAA00" opacity="0.5" filter="url(#motion-blur)"/>
+  <circle cx="220" cy="350" r="1.5" fill="#FF6B00" opacity="0.4" filter="url(#motion-blur)"/>
+  <circle cx="150" cy="280" r="1.5" fill="#FFAA00" opacity="0.3" filter="url(#motion-blur)"/>
+  <!-- Sparks -->
+  <circle cx="550" cy="200" r="2" fill="#FFAA00" opacity="0.7"/>
+  <circle cx="580" cy="350" r="1.5" fill="#FF6B00" opacity="0.5"/>
+  <circle cx="620" cy="180" r="1" fill="#FFAA00" opacity="0.6"/>
+  <circle cx="650" cy="400" r="1.5" fill="#FF6B00" opacity="0.4"/>
+  <!-- Floor glow -->
+  <ellipse cx="430" cy="480" rx="180" ry="25" fill="#FF6B00" opacity="0.06"/>
+  <!-- Label -->
+  <text x="400" y="535" text-anchor="middle" font-family="'Courier New', monospace" font-size="28" font-weight="bold" fill="#FF6B00" filter="url(#glow-orange)" letter-spacing="10">LUMI SPEED</text>
+  <text x="400" y="560" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#FFAA00" opacity="0.5" letter-spacing="5">COMPETITION GRADE</text>
+</svg>

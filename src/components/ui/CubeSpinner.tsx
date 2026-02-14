@@ -1,8 +1,13 @@
+import { cn } from '../../utils/cn'
 import styles from './CubeSpinner.module.css'
 
-export default function CubeSpinner() {
+interface CubeSpinnerProps {
+  size?: 'small' | 'default' | 'large'
+}
+
+export default function CubeSpinner({ size = 'default' }: CubeSpinnerProps) {
   return (
-    <div className={styles.scene}>
+    <div className={cn(styles.scene, size === 'small' && styles.small, size === 'large' && styles.large)}>
       <div className={styles.cube}>
         <div className={`${styles.face} ${styles.front}`} />
         <div className={`${styles.face} ${styles.back}`} />

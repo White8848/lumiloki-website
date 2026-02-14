@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import SectionHeading from '../components/ui/SectionHeading'
 import NewsCard from '../components/ui/NewsCard'
+import OptimizedImage from '../components/ui/OptimizedImage'
 import { newsArticles, newsCategories } from '../data/news'
 import { cn } from '../utils/cn'
 import styles from './NewsPage.module.css'
@@ -34,7 +35,20 @@ export default function NewsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className={styles.featuredImage}>{featuredArticle.emoji}</div>
+            <div className={styles.featuredImage}>
+              {featuredArticle.image ? (
+                <OptimizedImage
+                  src={featuredArticle.image}
+                  alt={featuredArticle.title}
+                  className={styles.featuredCoverImage}
+                  fallbackEmoji={featuredArticle.emoji}
+                  width={600}
+                  height={300}
+                />
+              ) : (
+                <span>{featuredArticle.emoji}</span>
+              )}
+            </div>
             <div className={styles.featuredContent}>
               <span className={styles.featuredBadge}>精选</span>
               <h2 className={styles.featuredTitle}>{featuredArticle.title}</h2>
@@ -75,6 +89,7 @@ export default function NewsPage() {
               category={article.category}
               date={article.date}
               emoji={article.emoji}
+              image={article.image}
             />
           </motion.div>
         ))}

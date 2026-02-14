@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'motion/react'
 import SectionHeading from '../components/ui/SectionHeading'
 import NewsCard from '../components/ui/NewsCard'
+import OptimizedImage from '../components/ui/OptimizedImage'
 import { newsArticles } from '../data/news'
 import { cn } from '../utils/cn'
 import styles from './NewsDetailPage.module.css'
@@ -35,7 +36,20 @@ export default function NewsDetailPage() {
           <h1 className={styles.title}>{article.title}</h1>
         </div>
 
-        <div className={styles.coverImage}>{article.emoji}</div>
+        <div className={styles.coverImage}>
+          {article.image ? (
+            <OptimizedImage
+              src={article.image}
+              alt={article.title}
+              className={styles.coverImg}
+              fallbackEmoji={article.emoji}
+              width={800}
+              height={300}
+            />
+          ) : (
+            <span className={styles.coverEmoji}>{article.emoji}</span>
+          )}
+        </div>
 
         <div className={styles.content}>{article.content}</div>
 
@@ -59,6 +73,7 @@ export default function NewsDetailPage() {
               category={a.category}
               date={a.date}
               emoji={a.emoji}
+              image={a.image}
             />
           ))}
         </div>

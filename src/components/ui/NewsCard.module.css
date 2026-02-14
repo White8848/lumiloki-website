@@ -20,6 +20,21 @@
   justify-content: center;
   height: 180px;
   background: radial-gradient(circle at center, rgba(178, 75, 243, 0.06) 0%, var(--color-bg-card) 70%);
+  overflow: hidden;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .coverImage {
+  transform: scale(1.05);
+}
+
+.emojiPlaceholder {
   font-size: 48px;
 }
 

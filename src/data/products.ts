@@ -1,5 +1,12 @@
 import type { Product } from '../types/product'
 
+import lumiProImg from '../assets/images/products/lumi-pro.svg'
+import lumiLiteImg from '../assets/images/products/lumi-lite.svg'
+import lumiSpeedImg from '../assets/images/products/lumi-speed.svg'
+import lumiMiniImg from '../assets/images/products/lumi-mini.svg'
+import lumiXImg from '../assets/images/products/lumi-x.svg'
+import lumiNeoImg from '../assets/images/products/lumi-neo.svg'
+
 export const products: Product[] = [
   {
     id: 'lumi-pro',
@@ -10,6 +17,7 @@ export const products: Product[] = [
       'Lumi Pro 是 Lumiloki 的旗舰之作。搭载最新一代六轴高精度传感器，配合全面覆盖的LED矩阵和BLE 5.0蓝牙模块，在竞速计时与炫彩灯效之间实现完美平衡。无论你是竞速爱好者还是潮流玩家，Lumi Pro 都能满足你的所有期待。',
     price: '¥599',
     emoji: '🟦',
+    image: lumiProImg,
     featured: true,
     specs: [
       { label: '处理器', value: 'ARM Cortex-M4 @ 120MHz' },
@@ -48,6 +56,7 @@ export const products: Product[] = [
       'Lumi Lite 是开启智能魔方之旅的理想选择。保留了核心的灯效与蓝牙功能，同时以更轻盈的体积和更亲民的价格，让更多人感受到 Lumiloki 的魅力。',
     price: '¥299',
     emoji: '🟩',
+    image: lumiLiteImg,
     specs: [
       { label: '处理器', value: 'ARM Cortex-M0 @ 48MHz' },
       { label: '传感器', value: '三轴加速度计' },
@@ -85,6 +94,7 @@ export const products: Product[] = [
       'Lumi Speed 聚焦极致速拧体验。采用磁力定位系统和可调节松紧度设计，配合最高精度的传感器和极低延迟的蓝牙连接，为竞速选手提供专业级别的训练工具。',
     price: '¥499',
     emoji: '🟧',
+    image: lumiSpeedImg,
     specs: [
       { label: '处理器', value: 'ARM Cortex-M4 @ 120MHz' },
       { label: '传感器', value: '六轴IMU + 磁力定位' },
@@ -122,6 +132,7 @@ export const products: Product[] = [
       'Lumi Mini 将Lumiloki的魅力浓缩到50mm的小巧体积中。作为钥匙扣挂件或桌面摆件，它是展示个性的绝佳方式。虽然体积小，但灯效同样精彩。',
     price: '¥199',
     emoji: '🟪',
+    image: lumiMiniImg,
     specs: [
       { label: '尺寸', value: '50 x 50 x 50mm' },
       { label: 'LED', value: 'RGB LED x12' },
@@ -159,6 +170,7 @@ export const products: Product[] = [
       'Lumi X 大胆突破传统三阶形态，以金字塔（Pyraminx）为原型加入Lumiloki智能灯效系统。独特的三角面LED排列带来全新视觉体验，限量发售，收藏价值极高。',
     price: '¥799',
     emoji: '🔺',
+    image: lumiXImg,
     specs: [
       { label: '形态', value: 'Pyraminx 金字塔' },
       { label: '处理器', value: 'ARM Cortex-M4' },
@@ -196,6 +208,7 @@ export const products: Product[] = [
       'Lumi Neo 是 Lumiloki 与潮流品牌的跨界联名之作。独家设计的涂装配色，搭配联名专属灯效主题，将街头文化与智能科技完美融合。每一台都是独一无二的潮流单品。',
     price: '¥699',
     emoji: '🎨',
+    image: lumiNeoImg,
     specs: [
       { label: '处理器', value: 'ARM Cortex-M4 @ 120MHz' },
       { label: '传感器', value: '六轴IMU' },

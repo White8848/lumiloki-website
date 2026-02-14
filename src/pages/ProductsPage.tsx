@@ -54,6 +54,7 @@ export default function ProductsPage() {
                 description={product.description}
                 price={product.price}
                 emoji={product.emoji}
+                image={product.image}
                 featured={product.featured}
               />
             </motion.div>

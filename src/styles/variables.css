@@ -75,6 +75,27 @@
   --z-navbar: 100;
   --z-mobile-menu: 200;
   --z-modal: 300;
+
+  /* === 3D & Perspective === */
+  --perspective-default: 1000px;
+  --tilt-max: 15deg;
+  --tilt-scale: 1.02;
+
+  /* === Page Transitions === */
+  --page-transition-duration: 300ms;
+  --page-transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* === Particle Colors === */
+  --particle-primary: 0, 240, 255;
+  --particle-secondary: 178, 75, 243;
+  --particle-accent: 255, 45, 120;
+
+  /* === Scroll Progress === */
+  --scroll-progress-height: 3px;
+
+  /* === Cursor Glow === */
+  --cursor-glow-size: 400px;
+  --cursor-glow-opacity: 0.12;
 }
 
 @media (max-width: 640px) {

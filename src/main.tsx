@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import CubeSpinner from './components/ui/CubeSpinner'
+import GradientText from './components/effects/GradientText'
 
 import './styles/fonts.css'
 import './styles/variables.css'
@@ -22,12 +23,17 @@ function Loading() {
   return (
     <div style={{
       display: 'flex',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       minHeight: '100vh',
       background: 'var(--color-bg)',
+      gap: '1.5rem',
     }}>
-      <CubeSpinner />
+      <CubeSpinner size="large" />
+      <GradientText as="span" className="loading-brand-text">
+        LUMILOKI
+      </GradientText>
     </div>
   )
 }

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowPink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#FF2D78" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowPurple" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#B24BF3" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="rocketBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="50%" stop-color="#B24BF3"/>
+      <stop offset="100%" stop-color="#FF2D78"/>
+    </linearGradient>
+    <linearGradient id="trailGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF2D78" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#B24BF3" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="exhaustGlow" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#FF2D78" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#B24BF3" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A0A1A"/>
+
+  <!-- Stars -->
+  <circle cx="100" cy="80" r="1.5" fill="#00F0FF" opacity="0.7"/>
+  <circle cx="200" cy="150" r="1" fill="#B24BF3" opacity="0.5"/>
+  <circle cx="650" cy="60" r="2" fill="#FF2D78" opacity="0.6"/>
+  <circle cx="700" cy="200" r="1" fill="#00F0FF" opacity="0.8"/>
+  <circle cx="150" cy="300" r="1.5" fill="#B24BF3" opacity="0.4"/>
+  <circle cx="600" cy="350" r="1" fill="#00F0FF" opacity="0.6"/>
+  <circle cx="50" cy="450" r="1.5" fill="#FF2D78" opacity="0.5"/>
+  <circle cx="730" cy="400" r="2" fill="#B24BF3" opacity="0.7"/>
+  <circle cx="300" cy="50" r="1" fill="#00F0FF" opacity="0.9"/>
+  <circle cx="500" cy="120" r="1.5" fill="#FF2D78" opacity="0.4"/>
+  <circle cx="350" cy="500" r="1" fill="#B24BF3" opacity="0.6"/>
+  <circle cx="550" cy="480" r="1.5" fill="#00F0FF" opacity="0.5"/>
+
+  <!-- Exhaust glow -->
+  <ellipse cx="400" cy="480" rx="80" ry="120" fill="url(#exhaustGlow)"/>
+
+  <!-- Flame trails - left -->
+  <path d="M370 380 Q360 440 340 550 Q350 530 365 380Z" fill="url(#trailGrad)" filter="url(#glowPink)" opacity="0.7"/>
+  <!-- Flame trails - center -->
+  <path d="M390 390 Q395 460 400 570 Q405 460 410 390Z" fill="url(#trailGrad)" filter="url(#glowPink)" opacity="0.9"/>
+  <!-- Flame trails - right -->
+  <path d="M430 380 Q440 440 460 550 Q450 530 435 380Z" fill="url(#trailGrad)" filter="url(#glowPink)" opacity="0.7"/>
+
+  <!-- Rocket body -->
+  <g filter="url(#glowCyan)">
+    <!-- Nose cone -->
+    <path d="M400 100 L370 200 L430 200 Z" fill="url(#rocketBody)" stroke="#00F0FF" stroke-width="1.5"/>
+    <!-- Main body -->
+    <rect x="370" y="200" width="60" height="150" rx="3" fill="#1A1A3A" stroke="url(#rocketBody)" stroke-width="2"/>
+    <!-- Window -->
+    <circle cx="400" cy="250" r="15" fill="#0A0A1A" stroke="#00F0FF" stroke-width="2"/>
+    <circle cx="400" cy="250" r="8" fill="#00F0FF" opacity="0.2"/>
+    <!-- Body stripe -->
+    <rect x="370" y="290" width="60" height="4" fill="#B24BF3" opacity="0.8"/>
+    <rect x="370" y="310" width="60" height="4" fill="#FF2D78" opacity="0.6"/>
+  </g>
+
+  <!-- Fins -->
+  <g filter="url(#glowPurple)">
+    <path d="M370 320 L340 390 L370 370 Z" fill="#1A1A3A" stroke="#B24BF3" stroke-width="1.5"/>
+    <path d="M430 320 L460 390 L430 370 Z" fill="#1A1A3A" stroke="#B24BF3" stroke-width="1.5"/>
+  </g>
+
+  <!-- Engine nozzle -->
+  <path d="M380 350 L375 390 L425 390 L420 350 Z" fill="#1A1A3A" stroke="#FF2D78" stroke-width="1.5" filter="url(#glowPink)"/>
+
+  <!-- Speed lines -->
+  <line x1="320" y1="180" x2="280" y2="220" stroke="#00F0FF" stroke-width="1" opacity="0.4"/>
+  <line x1="310" y1="250" x2="260" y2="280" stroke="#B24BF3" stroke-width="1" opacity="0.3"/>
+  <line x1="480" y1="180" x2="520" y2="220" stroke="#00F0FF" stroke-width="1" opacity="0.4"/>
+  <line x1="490" y1="250" x2="540" y2="280" stroke="#B24BF3" stroke-width="1" opacity="0.3"/>
+
+  <!-- Grid lines on ground -->
+  <g opacity="0.15" stroke="#00F0FF" stroke-width="0.5">
+    <line x1="0" y1="580" x2="800" y2="580"/>
+    <line x1="0" y1="590" x2="800" y2="590"/>
+    <line x1="200" y1="560" x2="200" y2="600"/>
+    <line x1="400" y1="560" x2="400" y2="600"/>
+    <line x1="600" y1="560" x2="600" y2="600"/>
+  </g>
+</svg>

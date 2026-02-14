@@ -1,8 +1,27 @@
 import { motion } from 'motion/react'
 import SectionHeading from '../ui/SectionHeading'
 import GlowCard from '../ui/GlowCard'
+import OptimizedImage from '../ui/OptimizedImage'
 import { features } from '../../data/features'
 import styles from './FeaturesSection.module.css'
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
+  },
+}
 
 export default function FeaturesSection() {
   return (
@@ -14,26 +33,37 @@ export default function FeaturesSection() {
           subtitle="将前沿科技与极致手感融为一体，每一面都闪耀智慧之光"
         />
 
-        <div className={styles.grid}>
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <GlowCard className={styles.featureCard}>
+        <motion.div
+          className={styles.grid}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          {features.map((feature) => (
+            <motion.div key={feature.title} variants={itemVariants}>
+              <GlowCard className={styles.featureCard} enableTilt>
                 <div className={styles.iconWrapper}>
                   <div className={styles.iconRing} />
-                  <span className={styles.icon}>{feature.icon}</span>
+                  {feature.image ? (
+                    <OptimizedImage
+                      src={feature.image}
+                      alt={feature.title}
+                      className={styles.featureImage}
+                      fallbackEmoji={feature.icon}
+                      width={40}
+                      height={40}
+                    />
+                  ) : (
+                    <span className={styles.icon}>{feature.icon}</span>
+                  )}
                 </div>
                 <h3 className={styles.featureTitle}>{feature.title}</h3>
                 <p className={styles.featureDesc}>{feature.description}</p>
               </GlowCard>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

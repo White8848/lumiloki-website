@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glow-cyan-f">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.7" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-cyan-soft-f">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.4" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="brain-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <circle cx="400" cy="280" r="200" fill="url(#brain-glow)"/>
+  <!-- Brain outline - left hemisphere -->
+  <path d="M400,140 Q340,140 310,170 Q270,200 265,250 Q260,290 280,320 Q290,340 300,350 Q310,370 330,385 Q350,400 375,410 Q390,415 400,415"
+    fill="none" stroke="#00F0FF" stroke-width="2" filter="url(#glow-cyan-f)" stroke-linecap="round"/>
+  <!-- Brain outline - right hemisphere -->
+  <path d="M400,140 Q460,140 490,170 Q530,200 535,250 Q540,290 520,320 Q510,340 500,350 Q490,370 470,385 Q450,400 425,410 Q410,415 400,415"
+    fill="none" stroke="#00F0FF" stroke-width="2" filter="url(#glow-cyan-f)" stroke-linecap="round"/>
+  <!-- Brain folds - left -->
+  <path d="M310,200 Q340,210 360,195 Q380,185 395,195" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M285,260 Q320,250 345,265 Q370,275 395,265" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M295,315 Q330,305 355,320 Q375,330 395,320" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M330,370 Q355,360 375,370 Q390,378 395,375" fill="none" stroke="#00F0FF" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+  <!-- Brain folds - right -->
+  <path d="M405,195 Q420,185 440,195 Q460,210 490,200" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M405,265 Q430,275 455,265 Q480,250 515,260" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M405,320 Q425,330 445,320 Q470,305 505,315" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+  <path d="M405,375 Q420,378 435,370 Q455,360 470,370" fill="none" stroke="#00F0FF" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+  <!-- Center line -->
+  <line x1="400" y1="140" x2="400" y2="415" stroke="#00F0FF" stroke-width="0.8" opacity="0.3"/>
+  <!-- Circuit lines extending from brain -->
+  <!-- Left circuits -->
+  <path d="M265,250 L210,250 L210,220 L170,220" fill="none" stroke="#00F0FF" stroke-width="1.5" opacity="0.6" filter="url(#glow-cyan-f)"/>
+  <circle cx="170" cy="220" r="4" fill="#00F0FF" opacity="0.6" filter="url(#glow-cyan-soft-f)"/>
+  <path d="M280,320 L230,320 L230,360 L180,360" fill="none" stroke="#00F0FF" stroke-width="1.5" opacity="0.5" filter="url(#glow-cyan-f)"/>
+  <circle cx="180" cy="360" r="4" fill="#00F0FF" opacity="0.5" filter="url(#glow-cyan-soft-f)"/>
+  <path d="M310,170 L280,140 L240,140" fill="none" stroke="#00F0FF" stroke-width="1.5" opacity="0.5" filter="url(#glow-cyan-f)"/>
+  <circle cx="240" cy="140" r="3" fill="#00F0FF" opacity="0.5" filter="url(#glow-cyan-soft-f)"/>
+  <!-- Right circuits -->
+  <path d="M535,250 L590,250 L590,220 L630,220" fill="none" stroke="#00F0FF" stroke-width="1.5" opacity="0.6" filter="url(#glow-cyan-f)"/>
+  <circle cx="630" cy="220" r="4" fill="#00F0FF" opacity="0.6" filter="url(#glow-cyan-soft-f)"/>
+  <path d="M520,320 L570,320 L570,360 L620,360" fill="none" stroke="#00F0FF" stroke-width="1.5" opacity="0.5" filter="url(#glow-cyan-f)"/>
+  <circle cx="620" cy="360" r="4" fill="#00F0FF" opacity="0.5" filter="url(#glow-cyan-soft-f)"/>
+  <path d="M490,170 L520,140 L560,140" fill="none" stroke="#00F0FF" stroke-width="1.5" opacity="0.5" filter="url(#glow-cyan-f)"/>
+  <circle cx="560" cy="140" r="3" fill="#00F0FF" opacity="0.5" filter="url(#glow-cyan-soft-f)"/>
+  <!-- Bottom circuits -->
+  <path d="M375,410 L375,460 L340,460 L340,490" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.4"/>
+  <circle cx="340" cy="490" r="3" fill="#00F0FF" opacity="0.4"/>
+  <path d="M425,410 L425,460 L460,460 L460,490" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.4"/>
+  <circle cx="460" cy="490" r="3" fill="#00F0FF" opacity="0.4"/>
+  <!-- Neural pulse dots -->
+  <circle cx="350" cy="230" r="3" fill="#00F0FF" opacity="0.7" filter="url(#glow-cyan-soft-f)"/>
+  <circle cx="450" cy="230" r="3" fill="#00F0FF" opacity="0.7" filter="url(#glow-cyan-soft-f)"/>
+  <circle cx="380" cy="290" r="2.5" fill="#00F0FF" opacity="0.5"/>
+  <circle cx="420" cy="290" r="2.5" fill="#00F0FF" opacity="0.5"/>
+  <circle cx="400" cy="350" r="2.5" fill="#00F0FF" opacity="0.6"/>
+  <!-- Label -->
+  <text x="400" y="545" text-anchor="middle" font-family="'Courier New', monospace" font-size="22" font-weight="bold" fill="#00F0FF" filter="url(#glow-cyan-f)" letter-spacing="8">SMART SENSORS</text>
+</svg>

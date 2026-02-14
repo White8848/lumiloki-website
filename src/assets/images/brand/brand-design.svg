@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="design-glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#FF2D78" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="design-glow-cyan">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="design-bg" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FF2D78" stop-opacity="0.06"/>
+      <stop offset="50%" stop-color="#B24BF3" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <rect width="800" height="600" fill="url(#design-bg)"/>
+  <!-- Pen/stylus tool -->
+  <g transform="translate(300, 180) rotate(-45)">
+    <!-- Pen body -->
+    <rect x="-8" y="-100" width="16" height="160" rx="3" fill="#12122e" stroke="#FF2D78" stroke-width="1.5" filter="url(#design-glow)"/>
+    <!-- Pen tip -->
+    <polygon points="-8,60 8,60 0,90" fill="#12122e" stroke="#FF2D78" stroke-width="1.5" filter="url(#design-glow)"/>
+    <!-- Pen details -->
+    <line x1="-8" y1="-60" x2="8" y2="-60" stroke="#FF2D78" stroke-width="0.8" opacity="0.5"/>
+    <line x1="-8" y1="40" x2="8" y2="40" stroke="#FF2D78" stroke-width="0.8" opacity="0.5"/>
+    <rect x="-5" y="-55" width="10" height="12" rx="1" fill="#FF2D78" opacity="0.15"/>
+    <!-- Pen tip glow -->
+    <circle cx="0" cy="90" r="4" fill="#FF2D78" opacity="0.5" filter="url(#design-glow)"/>
+  </g>
+  <!-- Golden ratio spiral -->
+  <g transform="translate(400, 300)">
+    <path d="M0,0 Q80,0 80,-80" fill="none" stroke="#00F0FF" stroke-width="1" opacity="0.3" filter="url(#design-glow-cyan)"/>
+    <path d="M80,-80 Q80,-130 30,-130" fill="none" stroke="#00F0FF" stroke-width="1" opacity="0.25"/>
+    <path d="M30,-130 Q0,-130 0,-100" fill="none" stroke="#00F0FF" stroke-width="0.8" opacity="0.2"/>
+    <path d="M0,-100 Q0,-85 15,-85" fill="none" stroke="#00F0FF" stroke-width="0.8" opacity="0.18"/>
+    <path d="M15,-85 Q25,-85 25,-95" fill="none" stroke="#00F0FF" stroke-width="0.6" opacity="0.15"/>
+  </g>
+  <!-- Golden rectangles -->
+  <rect x="400" y="220" width="160" height="160" fill="none" stroke="#00F0FF" stroke-width="0.6" opacity="0.15"/>
+  <rect x="400" y="220" width="100" height="100" fill="none" stroke="#00F0FF" stroke-width="0.5" opacity="0.12"/>
+  <rect x="500" y="220" width="60" height="60" fill="none" stroke="#00F0FF" stroke-width="0.5" opacity="0.1"/>
+  <rect x="500" y="280" width="60" height="40" fill="none" stroke="#00F0FF" stroke-width="0.4" opacity="0.08"/>
+  <!-- Color palette swatches -->
+  <g transform="translate(180, 400)">
+    <rect x="0" y="0" width="50" height="50" rx="4" fill="#FF2D78" opacity="0.3" stroke="#FF2D78" stroke-width="1" filter="url(#design-glow)"/>
+    <rect x="65" y="0" width="50" height="50" rx="4" fill="#B24BF3" opacity="0.3" stroke="#B24BF3" stroke-width="1"/>
+    <rect x="130" y="0" width="50" height="50" rx="4" fill="#00F0FF" opacity="0.3" stroke="#00F0FF" stroke-width="1" filter="url(#design-glow-cyan)"/>
+    <rect x="195" y="0" width="50" height="50" rx="4" fill="#39FF14" opacity="0.2" stroke="#39FF14" stroke-width="1"/>
+    <rect x="260" y="0" width="50" height="50" rx="4" fill="#FFDD00" opacity="0.2" stroke="#FFDD00" stroke-width="1"/>
+    <rect x="325" y="0" width="50" height="50" rx="4" fill="#FFFFFF" opacity="0.1" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.3"/>
+  </g>
+  <!-- Bezier curve illustration -->
+  <path d="M500,380 C530,320 580,350 620,300" fill="none" stroke="#FF2D78" stroke-width="1.5" opacity="0.4" filter="url(#design-glow)"/>
+  <!-- Control point lines -->
+  <line x1="500" y1="380" x2="530" y2="320" stroke="#FF2D78" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3"/>
+  <line x1="580" y1="350" x2="620" y2="300" stroke="#FF2D78" stroke-width="0.5" opacity="0.2" stroke-dasharray="3,3"/>
+  <!-- Control points -->
+  <circle cx="500" cy="380" r="3" fill="#FF2D78" opacity="0.4"/>
+  <circle cx="530" cy="320" r="2" fill="#FF2D78" opacity="0.3"/>
+  <circle cx="580" cy="350" r="2" fill="#FF2D78" opacity="0.3"/>
+  <circle cx="620" cy="300" r="3" fill="#FF2D78" opacity="0.4"/>
+  <!-- Grid alignment guides -->
+  <line x1="150" y1="180" x2="150" y2="470" stroke="#B24BF3" stroke-width="0.3" opacity="0.1" stroke-dasharray="5,5"/>
+  <line x1="650" y1="180" x2="650" y2="470" stroke="#B24BF3" stroke-width="0.3" opacity="0.1" stroke-dasharray="5,5"/>
+  <line x1="150" y1="180" x2="650" y2="180" stroke="#B24BF3" stroke-width="0.3" opacity="0.1" stroke-dasharray="5,5"/>
+  <line x1="150" y1="470" x2="650" y2="470" stroke="#B24BF3" stroke-width="0.3" opacity="0.1" stroke-dasharray="5,5"/>
+  <!-- Sparkle accents -->
+  <circle cx="620" cy="200" r="2" fill="#FF2D78" opacity="0.4"/>
+  <circle cx="700" cy="350" r="1.5" fill="#00F0FF" opacity="0.3"/>
+  <circle cx="680" cy="420" r="1" fill="#B24BF3" opacity="0.3"/>
+  <circle cx="120" cy="300" r="1.5" fill="#FF2D78" opacity="0.25"/>
+  <!-- Label -->
+  <text x="400" y="545" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#FF2D78" filter="url(#design-glow)" letter-spacing="8">DESIGN</text>
+</svg>

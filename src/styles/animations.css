@@ -133,3 +133,113 @@
     transform: translateX(0);
   }
 }
+
+/* === Hero Float 3D === */
+@keyframes heroFloat3D {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-3deg);
+  }
+  50% {
+    transform: translateY(-12px) rotateX(-1deg) rotateY(2deg);
+  }
+  75% {
+    transform: translateY(-6px) rotateX(1.5deg) rotateY(-1.5deg);
+  }
+}
+
+/* === Blink (cursor) === */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* === Mesh Drift === */
+@keyframes meshDrift {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, -15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* === Shimmer (skeleton) === */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* === Ripple (button click) === */
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+/* === Gradient Text Flow === */
+@keyframes gradientTextFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* === Glitch Text === */
+@keyframes glitchText {
+  0%, 100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    clip-path: inset(40% 0 20% 0);
+    transform: translate(2px, -1px);
+  }
+  60% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(-1px, 1px);
+  }
+  80% {
+    clip-path: inset(10% 0 70% 0);
+    transform: translate(1px, -2px);
+  }
+}
+
+/* === Scroll Mouse Indicator === */
+@keyframes scrollMouse {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

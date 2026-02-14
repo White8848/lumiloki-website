@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="fun-glow-pink">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#FF2D78" flood-opacity="0.7" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="fun-glow-cyan">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="fun-glow-purple">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#B24BF3" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="fun-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF2D78" stop-opacity="0.05"/>
+      <stop offset="30%" stop-color="#B24BF3" stop-opacity="0.04"/>
+      <stop offset="60%" stop-color="#00F0FF" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <rect width="800" height="600" fill="url(#fun-bg)"/>
+  <!-- Large star - center -->
+  <g transform="translate(400, 260)" filter="url(#fun-glow-pink)">
+    <polygon points="0,-60 15,-20 58,-20 22,8 35,50 0,25 -35,50 -22,8 -58,-20 -15,-20" fill="#FF2D78" opacity="0.25" stroke="#FF2D78" stroke-width="1.5"/>
+  </g>
+  <!-- Star 2 - upper left -->
+  <g transform="translate(250, 180)" filter="url(#fun-glow-cyan)">
+    <polygon points="0,-35 9,-12 34,-12 14,4 20,28 0,14 -20,28 -14,4 -34,-12 -9,-12" fill="#00F0FF" opacity="0.2" stroke="#00F0FF" stroke-width="1"/>
+  </g>
+  <!-- Star 3 - upper right -->
+  <g transform="translate(560, 160)" filter="url(#fun-glow-purple)">
+    <polygon points="0,-30 8,-10 28,-10 12,3 17,24 0,12 -17,24 -12,3 -28,-10 -8,-10" fill="#B24BF3" opacity="0.2" stroke="#B24BF3" stroke-width="1"/>
+  </g>
+  <!-- Star 4 - lower left -->
+  <g transform="translate(220, 380)">
+    <polygon points="0,-25 6,-8 22,-8 10,3 14,20 0,10 -14,20 -10,3 -22,-8 -6,-8" fill="#FFDD00" opacity="0.2" stroke="#FFDD00" stroke-width="1"/>
+  </g>
+  <!-- Star 5 - lower right -->
+  <g transform="translate(580, 350)">
+    <polygon points="0,-28 7,-9 26,-9 12,3 16,22 0,11 -16,22 -12,3 -26,-9 -7,-9" fill="#39FF14" opacity="0.2" stroke="#39FF14" stroke-width="1"/>
+  </g>
+  <!-- Sparkle bursts -->
+  <!-- Sparkle 1 -->
+  <g transform="translate(330, 130)" opacity="0.6">
+    <line x1="0" y1="-12" x2="0" y2="12" stroke="#FF2D78" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="#FF2D78" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-8" y1="-8" x2="8" y2="8" stroke="#FF2D78" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="8" y1="-8" x2="-8" y2="8" stroke="#FF2D78" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <!-- Sparkle 2 -->
+  <g transform="translate(500, 120)" opacity="0.5">
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#00F0FF" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#00F0FF" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-7" y1="-7" x2="7" y2="7" stroke="#00F0FF" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="7" y1="-7" x2="-7" y2="7" stroke="#00F0FF" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <!-- Sparkle 3 -->
+  <g transform="translate(180, 280)" opacity="0.4">
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="#B24BF3" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#B24BF3" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-5" y1="-5" x2="5" y2="5" stroke="#B24BF3" stroke-width="1" stroke-linecap="round"/>
+    <line x1="5" y1="-5" x2="-5" y2="5" stroke="#B24BF3" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  <!-- Sparkle 4 -->
+  <g transform="translate(630, 260)" opacity="0.45">
+    <line x1="0" y1="-9" x2="0" y2="9" stroke="#FFDD00" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-9" y1="0" x2="9" y2="0" stroke="#FFDD00" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-6" y1="-6" x2="6" y2="6" stroke="#FFDD00" stroke-width="1" stroke-linecap="round"/>
+    <line x1="6" y1="-6" x2="-6" y2="6" stroke="#FFDD00" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  <!-- Sparkle 5 -->
+  <g transform="translate(400, 400)" opacity="0.5">
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-7" y1="-7" x2="7" y2="7" stroke="#39FF14" stroke-width="1" stroke-linecap="round"/>
+    <line x1="7" y1="-7" x2="-7" y2="7" stroke="#39FF14" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  <!-- Small floating dots -->
+  <circle cx="300" cy="320" r="2" fill="#FF2D78" opacity="0.4"/>
+  <circle cx="500" cy="300" r="1.5" fill="#00F0FF" opacity="0.35"/>
+  <circle cx="350" cy="400" r="2" fill="#B24BF3" opacity="0.3"/>
+  <circle cx="450" cy="380" r="1.5" fill="#FFDD00" opacity="0.3"/>
+  <circle cx="150" cy="180" r="1" fill="#39FF14" opacity="0.3"/>
+  <circle cx="650" cy="150" r="1" fill="#FF2D78" opacity="0.25"/>
+  <circle cx="120" cy="420" r="1.5" fill="#00F0FF" opacity="0.2"/>
+  <circle cx="680" cy="440" r="1" fill="#B24BF3" opacity="0.25"/>
+  <!-- Confetti-like elements -->
+  <rect x="280" y="100" width="6" height="3" rx="1" fill="#FF2D78" opacity="0.35" transform="rotate(25, 283, 101)"/>
+  <rect x="520" y="400" width="6" height="3" rx="1" fill="#00F0FF" opacity="0.3" transform="rotate(-15, 523, 401)"/>
+  <rect x="160" y="350" width="5" height="2.5" rx="1" fill="#FFDD00" opacity="0.25" transform="rotate(40, 162, 351)"/>
+  <rect x="640" cy="300" width="5" height="2.5" rx="1" fill="#39FF14" opacity="0.25" transform="rotate(-30, 642, 301)"/>
+  <rect x="350" y="450" width="6" height="3" rx="1" fill="#B24BF3" opacity="0.3" transform="rotate(10, 353, 451)"/>
+  <!-- Label -->
+  <text x="400" y="530" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#FF2D78" filter="url(#fun-glow-pink)" letter-spacing="8">FUN</text>
+</svg>

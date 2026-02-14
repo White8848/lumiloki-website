@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glow-purple">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#B24BF3" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-purple-soft">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#B24BF3" flood-opacity="0.4" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="face-top-p" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e0a35"/>
+      <stop offset="100%" stop-color="#140825"/>
+    </linearGradient>
+    <linearGradient id="face-left-p" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18082c"/>
+      <stop offset="100%" stop-color="#0e051c"/>
+    </linearGradient>
+    <linearGradient id="face-right-p" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#150728"/>
+      <stop offset="100%" stop-color="#0b0418"/>
+    </linearGradient>
+    <radialGradient id="bg-glow-p" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#B24BF3" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B24BF3" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#B24BF3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <rect width="800" height="600" fill="url(#bg-glow-p)"/>
+  <!-- Ambient orbs -->
+  <circle cx="250" cy="200" r="60" fill="url(#orb-glow)"/>
+  <circle cx="550" cy="400" r="50" fill="url(#orb-glow)"/>
+  <!-- Size comparison ring -->
+  <ellipse cx="400" cy="400" rx="120" ry="40" fill="none" stroke="#B24BF3" stroke-width="0.5" opacity="0.2" stroke-dasharray="4,4"/>
+  <ellipse cx="400" cy="400" rx="90" ry="30" fill="none" stroke="#B24BF3" stroke-width="0.5" opacity="0.15" stroke-dasharray="3,3"/>
+  <!-- Small compact cube -->
+  <!-- Top face -->
+  <polygon points="400,210 490,260 400,310 310,260" fill="url(#face-top-p)" stroke="#B24BF3" stroke-width="2" filter="url(#glow-purple)"/>
+  <!-- Left face -->
+  <polygon points="310,260 400,310 400,390 310,340" fill="url(#face-left-p)" stroke="#B24BF3" stroke-width="2" filter="url(#glow-purple)"/>
+  <!-- Right face -->
+  <polygon points="400,310 490,260 490,340 400,390" fill="url(#face-right-p)" stroke="#B24BF3" stroke-width="2" filter="url(#glow-purple)"/>
+  <!-- Subtle center mark on top -->
+  <circle cx="400" cy="260" r="8" fill="none" stroke="#B24BF3" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="400" cy="260" r="3" fill="#B24BF3" opacity="0.4"/>
+  <!-- Corner accents -->
+  <circle cx="400" cy="210" r="3" fill="#B24BF3" filter="url(#glow-purple-soft)"/>
+  <circle cx="400" cy="390" r="3" fill="#B24BF3" filter="url(#glow-purple-soft)"/>
+  <!-- Floating sparkles around to emphasize small size -->
+  <circle cx="340" cy="180" r="1.5" fill="#B24BF3" opacity="0.6"/>
+  <circle cx="460" cy="190" r="1" fill="#D68FFF" opacity="0.5"/>
+  <circle cx="280" cy="300" r="1.5" fill="#B24BF3" opacity="0.4"/>
+  <circle cx="520" cy="310" r="1" fill="#D68FFF" opacity="0.5"/>
+  <circle cx="350" cy="430" r="1.5" fill="#B24BF3" opacity="0.3"/>
+  <circle cx="450" cy="420" r="1" fill="#D68FFF" opacity="0.4"/>
+  <!-- "Portable" indicator - compact size arrows -->
+  <path d="M270,220 L250,220 L260,210Z" fill="#B24BF3" opacity="0.3"/>
+  <path d="M530,220 L550,220 L540,210Z" fill="#B24BF3" opacity="0.3"/>
+  <line x1="250" y1="220" x2="270" y2="220" stroke="#B24BF3" stroke-width="0.8" opacity="0.3"/>
+  <line x1="530" y1="220" x2="550" y2="220" stroke="#B24BF3" stroke-width="0.8" opacity="0.3"/>
+  <!-- Floor reflection -->
+  <ellipse cx="400" cy="430" rx="100" ry="15" fill="#B24BF3" opacity="0.05"/>
+  <!-- Label -->
+  <text x="400" y="520" text-anchor="middle" font-family="'Courier New', monospace" font-size="26" font-weight="bold" fill="#B24BF3" filter="url(#glow-purple)" letter-spacing="10">LUMI MINI</text>
+  <text x="400" y="545" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#D68FFF" opacity="0.5" letter-spacing="5">PORTABLE EDITION</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glow-yellow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#FFDD00" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-yellow-soft">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#FFDD00" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="charge-fill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#39FF14" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#FFDD00" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FFDD00" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="bolt-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFDD00" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <circle cx="400" cy="280" r="220" fill="url(#bolt-glow)"/>
+  <!-- Battery body -->
+  <rect x="260" y="180" width="260" height="200" rx="12" fill="none" stroke="#FFDD00" stroke-width="2.5" filter="url(#glow-yellow)"/>
+  <!-- Battery terminal -->
+  <rect x="520" y="240" width="25" height="80" rx="4" fill="none" stroke="#FFDD00" stroke-width="2" filter="url(#glow-yellow)"/>
+  <!-- Charge level fill -->
+  <rect x="270" y="190" width="180" height="180" rx="6" fill="url(#charge-fill)"/>
+  <!-- Charge level bars -->
+  <rect x="280" y="200" width="35" height="160" rx="3" fill="#39FF14" opacity="0.25"/>
+  <rect x="325" y="200" width="35" height="160" rx="3" fill="#39FF14" opacity="0.2"/>
+  <rect x="370" y="200" width="35" height="160" rx="3" fill="#FFDD00" opacity="0.15"/>
+  <rect x="415" y="200" width="35" height="160" rx="3" fill="#FFDD00" opacity="0.08"/>
+  <!-- Lightning bolt in center -->
+  <g filter="url(#glow-yellow)">
+    <polygon points="410,200 370,280 395,280 365,370 430,270 400,270 430,200" fill="#FFDD00" opacity="0.8"/>
+  </g>
+  <!-- Inner lightning bolt highlight -->
+  <polygon points="410,210 378,278 398,278 372,358 424,274 402,274 425,210" fill="#FFFFFF" opacity="0.15"/>
+  <!-- Energy arcs -->
+  <path d="M280,160 Q300,145 320,160" fill="none" stroke="#FFDD00" stroke-width="1.2" opacity="0.3" stroke-linecap="round"/>
+  <path d="M350,145 Q380,125 410,145" fill="none" stroke="#FFDD00" stroke-width="1.2" opacity="0.25" stroke-linecap="round"/>
+  <path d="M430,155 Q450,140 470,155" fill="none" stroke="#FFDD00" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+  <!-- Energy particles rising -->
+  <circle cx="310" cy="140" r="2" fill="#FFDD00" opacity="0.5"/>
+  <circle cx="380" cy="120" r="1.5" fill="#FFDD00" opacity="0.4"/>
+  <circle cx="450" cy="135" r="2" fill="#FFDD00" opacity="0.35"/>
+  <circle cx="340" cy="110" r="1" fill="#39FF14" opacity="0.3"/>
+  <circle cx="420" cy="115" r="1.5" fill="#39FF14" opacity="0.3"/>
+  <!-- Electric sparks at terminal -->
+  <line x1="545" y1="260" x2="570" y2="250" stroke="#FFDD00" stroke-width="1.5" opacity="0.5" filter="url(#glow-yellow)"/>
+  <line x1="545" y1="280" x2="575" y2="280" stroke="#FFDD00" stroke-width="1.5" opacity="0.4" filter="url(#glow-yellow)"/>
+  <line x1="545" y1="300" x2="570" y2="310" stroke="#FFDD00" stroke-width="1.5" opacity="0.5" filter="url(#glow-yellow)"/>
+  <circle cx="570" cy="250" r="2" fill="#FFDD00" opacity="0.5"/>
+  <circle cx="575" cy="280" r="2" fill="#FFDD00" opacity="0.4"/>
+  <circle cx="570" cy="310" r="2" fill="#FFDD00" opacity="0.5"/>
+  <!-- Bottom charge indicator -->
+  <text x="390" y="430" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39FF14" opacity="0.6" letter-spacing="2">100%</text>
+  <!-- Ambient particles -->
+  <circle cx="180" cy="200" r="1.5" fill="#FFDD00" opacity="0.3"/>
+  <circle cx="620" cy="180" r="1" fill="#FFDD00" opacity="0.25"/>
+  <circle cx="200" cy="380" r="1" fill="#39FF14" opacity="0.2"/>
+  <circle cx="600" cy="400" r="1.5" fill="#39FF14" opacity="0.25"/>
+  <!-- Label -->
+  <text x="400" y="530" text-anchor="middle" font-family="'Courier New', monospace" font-size="22" font-weight="bold" fill="#FFDD00" filter="url(#glow-yellow)" letter-spacing="8">LONG BATTERY</text>
+</svg>

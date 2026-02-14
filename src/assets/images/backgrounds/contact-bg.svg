@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="contact-glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <!-- Dense grid/mesh pattern -->
+  <!-- Horizontal lines -->
+  <line x1="0" y1="30" x2="800" y2="30" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="0" y1="60" x2="800" y2="60" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="0" y1="90" x2="800" y2="90" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="0" y1="120" x2="800" y2="120" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="0" y1="150" x2="800" y2="150" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="0" y1="180" x2="800" y2="180" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="0" y1="210" x2="800" y2="210" stroke="#00F0FF" stroke-width="0.2" opacity="0.08"/>
+  <line x1="0" y1="240" x2="800" y2="240" stroke="#00F0FF" stroke-width="0.2" opacity="0.08"/>
+  <line x1="0" y1="270" x2="800" y2="270" stroke="#00F0FF" stroke-width="0.3" opacity="0.09"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#00F0FF" stroke-width="0.3" opacity="0.1"/>
+  <line x1="0" y1="330" x2="800" y2="330" stroke="#00F0FF" stroke-width="0.3" opacity="0.09"/>
+  <line x1="0" y1="360" x2="800" y2="360" stroke="#00F0FF" stroke-width="0.2" opacity="0.08"/>
+  <line x1="0" y1="390" x2="800" y2="390" stroke="#00F0FF" stroke-width="0.2" opacity="0.08"/>
+  <line x1="0" y1="420" x2="800" y2="420" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="0" y1="450" x2="800" y2="450" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="0" y1="510" x2="800" y2="510" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="0" y1="540" x2="800" y2="540" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="0" y1="570" x2="800" y2="570" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <!-- Vertical lines -->
+  <line x1="40" y1="0" x2="40" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="80" y1="0" x2="80" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="120" y1="0" x2="120" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="160" y1="0" x2="160" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="200" y1="0" x2="200" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="240" y1="0" x2="240" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="280" y1="0" x2="280" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.08"/>
+  <line x1="320" y1="0" x2="320" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.08"/>
+  <line x1="360" y1="0" x2="360" y2="600" stroke="#00F0FF" stroke-width="0.3" opacity="0.09"/>
+  <line x1="400" y1="0" x2="400" y2="600" stroke="#00F0FF" stroke-width="0.3" opacity="0.1"/>
+  <line x1="440" y1="0" x2="440" y2="600" stroke="#00F0FF" stroke-width="0.3" opacity="0.09"/>
+  <line x1="480" y1="0" x2="480" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.08"/>
+  <line x1="520" y1="0" x2="520" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.08"/>
+  <line x1="560" y1="0" x2="560" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="600" y1="0" x2="600" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="640" y1="0" x2="640" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.07"/>
+  <line x1="680" y1="0" x2="680" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="720" y1="0" x2="720" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <line x1="760" y1="0" x2="760" y2="600" stroke="#00F0FF" stroke-width="0.2" opacity="0.06"/>
+  <!-- Highlighted intersection nodes -->
+  <circle cx="400" cy="300" r="2" fill="#00F0FF" opacity="0.2" filter="url(#contact-glow)"/>
+  <circle cx="360" cy="270" r="1.5" fill="#00F0FF" opacity="0.15"/>
+  <circle cx="440" cy="270" r="1.5" fill="#00F0FF" opacity="0.15"/>
+  <circle cx="360" cy="330" r="1.5" fill="#00F0FF" opacity="0.15"/>
+  <circle cx="440" cy="330" r="1.5" fill="#00F0FF" opacity="0.15"/>
+  <circle cx="320" cy="240" r="1" fill="#B24BF3" opacity="0.12"/>
+  <circle cx="480" cy="240" r="1" fill="#B24BF3" opacity="0.12"/>
+  <circle cx="320" cy="360" r="1" fill="#B24BF3" opacity="0.12"/>
+  <circle cx="480" cy="360" r="1" fill="#B24BF3" opacity="0.12"/>
+  <circle cx="280" cy="210" r="1" fill="#B24BF3" opacity="0.08"/>
+  <circle cx="520" cy="210" r="1" fill="#B24BF3" opacity="0.08"/>
+  <circle cx="280" cy="390" r="1" fill="#B24BF3" opacity="0.08"/>
+  <circle cx="520" cy="390" r="1" fill="#B24BF3" opacity="0.08"/>
+  <!-- Subtle diagonal mesh lines -->
+  <line x1="300" y1="200" x2="500" y2="400" stroke="#B24BF3" stroke-width="0.3" opacity="0.05"/>
+  <line x1="500" y1="200" x2="300" y2="400" stroke="#B24BF3" stroke-width="0.3" opacity="0.05"/>
+  <line x1="200" y1="150" x2="600" y2="450" stroke="#B24BF3" stroke-width="0.2" opacity="0.03"/>
+  <line x1="600" y1="150" x2="200" y2="450" stroke="#B24BF3" stroke-width="0.2" opacity="0.03"/>
+</svg>

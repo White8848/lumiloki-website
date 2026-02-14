@@ -17,6 +17,7 @@ export interface Product {
   longDescription: string
   price: string
   emoji: string
+  image?: string
   specs: ProductSpec[]
   features: ProductFeature[]
   featured?: boolean

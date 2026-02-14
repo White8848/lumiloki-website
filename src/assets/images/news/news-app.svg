@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowPurple" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#B24BF3" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1A3A"/>
+      <stop offset="100%" stop-color="#0A0A1A"/>
+    </linearGradient>
+    <linearGradient id="phoneEdge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#B24BF3"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#B24BF3" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <ellipse cx="400" cy="270" rx="300" ry="250" fill="url(#bgGlow)"/>
+
+  <!-- Stars -->
+  <circle cx="100" cy="80" r="1.5" fill="#00F0FF" opacity="0.7"/>
+  <circle cx="680" cy="60" r="2" fill="#B24BF3" opacity="0.6"/>
+  <circle cx="150" cy="500" r="1" fill="#00F0FF" opacity="0.4"/>
+  <circle cx="700" cy="480" r="1.5" fill="#B24BF3" opacity="0.5"/>
+
+  <!-- Phone body -->
+  <g filter="url(#glowCyan)">
+    <rect x="310" y="80" width="180" height="360" rx="20" fill="#1A1A3A" stroke="url(#phoneEdge)" stroke-width="2.5"/>
+    <!-- Screen -->
+    <rect x="322" y="110" width="156" height="300" rx="5" fill="url(#screenGrad)"/>
+    <!-- Notch -->
+    <rect x="375" y="82" width="50" height="8" rx="4" fill="#0A0A1A"/>
+  </g>
+
+  <!-- App UI on screen -->
+  <!-- Status bar -->
+  <g fill="#00F0FF" opacity="0.5" font-size="8" font-family="monospace">
+    <text x="332" y="128">9:41</text>
+    <text x="450" y="128">100%</text>
+  </g>
+
+  <!-- Timer display -->
+  <text x="400" y="175" text-anchor="middle" fill="#00F0FF" font-size="28" font-family="monospace" filter="url(#glowCyan)">06.82</text>
+  <text x="400" y="190" text-anchor="middle" fill="#B24BF3" font-size="9" font-family="monospace" opacity="0.7">PERSONAL BEST</text>
+
+  <!-- Stats bars -->
+  <g transform="translate(335, 205)">
+    <rect x="0" y="0" width="130" height="24" rx="4" fill="#0A0A1A" stroke="#B24BF3" stroke-width="0.5" opacity="0.5"/>
+    <rect x="4" y="5" width="85" height="14" rx="2" fill="#B24BF3" opacity="0.3"/>
+    <text x="8" y="15" fill="#B24BF3" font-size="8" font-family="monospace" opacity="0.8">AVG: 8.45s</text>
+  </g>
+  <g transform="translate(335, 235)">
+    <rect x="0" y="0" width="130" height="24" rx="4" fill="#0A0A1A" stroke="#00F0FF" stroke-width="0.5" opacity="0.5"/>
+    <rect x="4" y="5" width="100" height="14" rx="2" fill="#00F0FF" opacity="0.2"/>
+    <text x="8" y="15" fill="#00F0FF" font-size="8" font-family="monospace" opacity="0.8">SOLVES: 1,247</text>
+  </g>
+
+  <!-- Mini chart -->
+  <g transform="translate(335, 270)">
+    <rect x="0" y="0" width="130" height="50" rx="4" fill="#0A0A1A" opacity="0.5"/>
+    <polyline points="10,40 25,35 40,25 55,30 70,15 85,20 100,10 115,18" fill="none" stroke="#00F0FF" stroke-width="1.5" opacity="0.7"/>
+    <polyline points="10,40 25,35 40,25 55,30 70,15 85,20 100,10 115,18 115,45 10,45" fill="#00F0FF" opacity="0.05"/>
+  </g>
+
+  <!-- Bottom nav buttons -->
+  <g transform="translate(335, 335)">
+    <rect x="0" y="0" width="130" height="30" rx="4" fill="#0A0A1A" opacity="0.3"/>
+    <circle cx="22" cy="15" r="8" fill="none" stroke="#00F0FF" stroke-width="1" opacity="0.5"/>
+    <circle cx="65" cy="15" r="8" fill="#B24BF3" opacity="0.4"/>
+    <circle cx="108" cy="15" r="8" fill="none" stroke="#FF2D78" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- Home indicator -->
+  <rect x="375" y="420" width="50" height="4" rx="2" fill="#B24BF3" opacity="0.4"/>
+
+  <!-- Floating notifications -->
+  <g filter="url(#glowPurple)" opacity="0.7">
+    <!-- Left notification -->
+    <rect x="140" y="180" width="140" height="50" rx="10" fill="#1A1A3A" stroke="#B24BF3" stroke-width="1"/>
+    <circle cx="165" cy="205" r="12" fill="#B24BF3" opacity="0.3"/>
+    <text x="163" y="209" text-anchor="middle" font-size="12">🏆</text>
+    <text x="190" y="200" fill="#B24BF3" font-size="8" font-family="monospace">New Record!</text>
+    <text x="190" y="215" fill="#00F0FF" font-size="10" font-family="monospace">6.82s</text>
+  </g>
+
+  <g filter="url(#glowPurple)" opacity="0.6">
+    <!-- Right notification -->
+    <rect x="520" y="250" width="140" height="50" rx="10" fill="#1A1A3A" stroke="#00F0FF" stroke-width="1"/>
+    <circle cx="545" cy="275" r="12" fill="#00F0FF" opacity="0.3"/>
+    <text x="543" y="279" text-anchor="middle" font-size="12">👥</text>
+    <text x="570" y="270" fill="#00F0FF" font-size="8" font-family="monospace">Friend Online</text>
+    <text x="570" y="285" fill="#B24BF3" font-size="10" font-family="monospace">CubeKing</text>
+  </g>
+
+  <!-- Connection lines from phone to notifications -->
+  <line x1="310" y1="230" x2="280" y2="215" stroke="#B24BF3" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,4"/>
+  <line x1="490" y1="280" x2="520" y2="275" stroke="#00F0FF" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,4"/>
+
+  <!-- Version badge -->
+  <text x="400" y="520" text-anchor="middle" fill="#B24BF3" font-size="12" font-family="monospace" opacity="0.4">APP v3.0</text>
+</svg>

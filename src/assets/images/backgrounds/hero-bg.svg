@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="hero-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="hero-center" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.05"/>
+      <stop offset="40%" stop-color="#B24BF3" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grid-fade-h" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#00F0FF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="grid-fade-v" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.02"/>
+      <stop offset="50%" stop-color="#00F0FF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <rect width="800" height="600" fill="url(#hero-center)"/>
+  <!-- Perspective grid - horizontal lines -->
+  <line x1="0" y1="60" x2="800" y2="60" stroke="#00F0FF" stroke-width="0.3" opacity="0.08"/>
+  <line x1="0" y1="120" x2="800" y2="120" stroke="#00F0FF" stroke-width="0.3" opacity="0.1"/>
+  <line x1="0" y1="180" x2="800" y2="180" stroke="#00F0FF" stroke-width="0.4" opacity="0.12"/>
+  <line x1="0" y1="240" x2="800" y2="240" stroke="#00F0FF" stroke-width="0.4" opacity="0.14"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#00F0FF" stroke-width="0.5" opacity="0.16" filter="url(#hero-glow)"/>
+  <line x1="0" y1="360" x2="800" y2="360" stroke="#00F0FF" stroke-width="0.4" opacity="0.14"/>
+  <line x1="0" y1="420" x2="800" y2="420" stroke="#00F0FF" stroke-width="0.4" opacity="0.12"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#00F0FF" stroke-width="0.3" opacity="0.1"/>
+  <line x1="0" y1="540" x2="800" y2="540" stroke="#00F0FF" stroke-width="0.3" opacity="0.08"/>
+  <!-- Vertical lines -->
+  <line x1="80" y1="0" x2="80" y2="600" stroke="#00F0FF" stroke-width="0.3" opacity="0.06"/>
+  <line x1="160" y1="0" x2="160" y2="600" stroke="#00F0FF" stroke-width="0.3" opacity="0.08"/>
+  <line x1="240" y1="0" x2="240" y2="600" stroke="#00F0FF" stroke-width="0.4" opacity="0.1"/>
+  <line x1="320" y1="0" x2="320" y2="600" stroke="#00F0FF" stroke-width="0.4" opacity="0.12"/>
+  <line x1="400" y1="0" x2="400" y2="600" stroke="#00F0FF" stroke-width="0.5" opacity="0.15" filter="url(#hero-glow)"/>
+  <line x1="480" y1="0" x2="480" y2="600" stroke="#00F0FF" stroke-width="0.4" opacity="0.12"/>
+  <line x1="560" y1="0" x2="560" y2="600" stroke="#00F0FF" stroke-width="0.4" opacity="0.1"/>
+  <line x1="640" y1="0" x2="640" y2="600" stroke="#00F0FF" stroke-width="0.3" opacity="0.08"/>
+  <line x1="720" y1="0" x2="720" y2="600" stroke="#00F0FF" stroke-width="0.3" opacity="0.06"/>
+  <!-- Intersection glow nodes -->
+  <circle cx="400" cy="300" r="3" fill="#00F0FF" opacity="0.3" filter="url(#hero-glow)"/>
+  <circle cx="320" cy="240" r="2" fill="#00F0FF" opacity="0.2"/>
+  <circle cx="480" cy="240" r="2" fill="#00F0FF" opacity="0.2"/>
+  <circle cx="320" cy="360" r="2" fill="#00F0FF" opacity="0.2"/>
+  <circle cx="480" cy="360" r="2" fill="#00F0FF" opacity="0.2"/>
+  <circle cx="240" cy="180" r="1.5" fill="#B24BF3" opacity="0.15"/>
+  <circle cx="560" cy="180" r="1.5" fill="#B24BF3" opacity="0.15"/>
+  <circle cx="240" cy="420" r="1.5" fill="#B24BF3" opacity="0.15"/>
+  <circle cx="560" cy="420" r="1.5" fill="#B24BF3" opacity="0.15"/>
+  <!-- Diagonal tech lines -->
+  <line x1="100" y1="100" x2="250" y2="200" stroke="#B24BF3" stroke-width="0.5" opacity="0.1"/>
+  <line x1="550" y1="100" x2="700" y2="200" stroke="#B24BF3" stroke-width="0.5" opacity="0.1"/>
+  <line x1="100" y1="500" x2="250" y2="400" stroke="#FF2D78" stroke-width="0.5" opacity="0.08"/>
+  <line x1="550" y1="500" x2="700" y2="400" stroke="#FF2D78" stroke-width="0.5" opacity="0.08"/>
+  <!-- Floating tech particles -->
+  <circle cx="150" cy="150" r="1.5" fill="#00F0FF" opacity="0.4"/>
+  <circle cx="650" cy="130" r="1" fill="#B24BF3" opacity="0.35"/>
+  <circle cx="100" cy="350" r="1.5" fill="#FF2D78" opacity="0.25"/>
+  <circle cx="700" cy="400" r="1" fill="#00F0FF" opacity="0.3"/>
+  <circle cx="350" cy="80" r="1" fill="#B24BF3" opacity="0.3"/>
+  <circle cx="450" cy="520" r="1.5" fill="#FF2D78" opacity="0.2"/>
+  <circle cx="200" cy="480" r="1" fill="#00F0FF" opacity="0.25"/>
+  <circle cx="600" cy="500" r="1" fill="#B24BF3" opacity="0.2"/>
+  <!-- Hexagonal accent elements -->
+  <polygon points="680,80 700,70 720,80 720,100 700,110 680,100" fill="none" stroke="#00F0FF" stroke-width="0.5" opacity="0.12"/>
+  <polygon points="80,450 100,440 120,450 120,470 100,480 80,470" fill="none" stroke="#B24BF3" stroke-width="0.5" opacity="0.1"/>
+</svg>

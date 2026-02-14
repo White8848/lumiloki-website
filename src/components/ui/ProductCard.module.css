@@ -39,6 +39,18 @@
   justify-content: center;
   background: radial-gradient(circle at center, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
   min-height: 200px;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .productImage {
+  transform: scale(1.08);
 }
 
 .imagePlaceholder {
@@ -95,4 +107,5 @@
   border-radius: var(--radius-full);
   font-family: var(--font-display);
   letter-spacing: 0.5px;
+  z-index: 1;
 }

@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowPink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#FF2D78" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="brushGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF2D78"/>
+      <stop offset="50%" stop-color="#B24BF3"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+    <radialGradient id="sprayGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B24BF3" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A0A1A"/>
+
+  <!-- Background glow -->
+  <ellipse cx="400" cy="280" rx="300" ry="200" fill="url(#sprayGlow)"/>
+
+  <!-- Stars -->
+  <circle cx="90" cy="70" r="1.5" fill="#FF2D78" opacity="0.7"/>
+  <circle cx="250" cy="100" r="1" fill="#00F0FF" opacity="0.5"/>
+  <circle cx="700" cy="90" r="2" fill="#B24BF3" opacity="0.6"/>
+  <circle cx="50" cy="400" r="1.5" fill="#00F0FF" opacity="0.4"/>
+  <circle cx="750" cy="450" r="1" fill="#FF2D78" opacity="0.6"/>
+
+  <!-- Graffiti spray strokes -->
+  <g opacity="0.15">
+    <path d="M150 400 Q200 350 280 380 Q340 400 350 350" stroke="#FF2D78" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M450 370 Q520 340 580 380 Q620 400 660 350" stroke="#00F0FF" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M200 450 Q300 420 400 460 Q500 490 600 440" stroke="#B24BF3" stroke-width="10" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Cube (left side - Lumiloki) -->
+  <g filter="url(#glowCyan)" transform="translate(260, 200)">
+    <!-- 3D cube -->
+    <path d="M0 40 L60 0 L120 40 L60 80 Z" fill="#1A1A3A" stroke="#00F0FF" stroke-width="2"/>
+    <path d="M0 40 L0 120 L60 160 L60 80 Z" fill="#1A1A3A" stroke="#00F0FF" stroke-width="2"/>
+    <path d="M60 80 L60 160 L120 120 L120 40 Z" fill="#1A1A3A" stroke="#00F0FF" stroke-width="2"/>
+    <!-- LED grid on front face -->
+    <g fill="#00F0FF" opacity="0.6">
+      <rect x="68" y="72" width="12" height="12" rx="1"/>
+      <rect x="84" y="72" width="12" height="12" rx="1"/>
+      <rect x="100" y="72" width="12" height="12" rx="1"/>
+      <rect x="68" y="92" width="12" height="12" rx="1"/>
+      <rect x="84" y="92" width="12" height="12" rx="1"/>
+      <rect x="100" y="92" width="12" height="12" rx="1"/>
+    </g>
+  </g>
+
+  <!-- "X" connector -->
+  <g filter="url(#glowPink)">
+    <text x="400" y="310" text-anchor="middle" fill="url(#brushGrad)" font-size="48" font-family="sans-serif" font-weight="bold">×</text>
+  </g>
+
+  <!-- Spray can (right side - street brand) -->
+  <g filter="url(#glowPink)" transform="translate(470, 210)">
+    <!-- Can body -->
+    <rect x="20" y="30" width="50" height="100" rx="5" fill="#1A1A3A" stroke="#FF2D78" stroke-width="2"/>
+    <!-- Can cap -->
+    <rect x="30" y="10" width="30" height="25" rx="10" fill="#1A1A3A" stroke="#FF2D78" stroke-width="2"/>
+    <!-- Nozzle -->
+    <rect x="40" y="0" width="10" height="15" rx="3" fill="#FF2D78" opacity="0.8"/>
+    <!-- Label stripe -->
+    <rect x="20" y="60" width="50" height="4" fill="#B24BF3" opacity="0.8"/>
+    <rect x="20" y="70" width="50" height="4" fill="#00F0FF" opacity="0.6"/>
+    <!-- Spray particles -->
+    <circle cx="45" cy="-15" r="3" fill="#FF2D78" opacity="0.4"/>
+    <circle cx="35" cy="-25" r="2" fill="#B24BF3" opacity="0.3"/>
+    <circle cx="55" cy="-20" r="2.5" fill="#00F0FF" opacity="0.35"/>
+    <circle cx="40" cy="-35" r="1.5" fill="#FF2D78" opacity="0.2"/>
+    <circle cx="50" cy="-30" r="2" fill="#B24BF3" opacity="0.25"/>
+  </g>
+
+  <!-- Decorative paint splatters -->
+  <g opacity="0.3">
+    <circle cx="200" cy="180" r="8" fill="#FF2D78"/>
+    <circle cx="600" cy="200" r="6" fill="#00F0FF"/>
+    <circle cx="350" cy="420" r="5" fill="#B24BF3"/>
+    <circle cx="500" cy="150" r="4" fill="#FF2D78"/>
+  </g>
+
+  <!-- Bottom text -->
+  <text x="400" y="480" text-anchor="middle" fill="#B24BF3" font-size="14" font-family="monospace" opacity="0.5">LIMITED EDITION</text>
+  <line x1="280" y1="490" x2="520" y2="490" stroke="#B24BF3" stroke-width="0.5" opacity="0.3"/>
+</svg>

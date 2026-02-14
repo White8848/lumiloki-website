@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowPink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#FF2D78" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowPurple" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#B24BF3" flood-opacity="0.7" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowGold" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#FFD700" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="trophyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="50%" stop-color="#B24BF3"/>
+      <stop offset="100%" stop-color="#FF2D78"/>
+    </linearGradient>
+    <linearGradient id="starGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#B24BF3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A0A1A"/>
+
+  <!-- Background particles -->
+  <circle cx="120" cy="100" r="1.5" fill="#00F0FF" opacity="0.5"/>
+  <circle cx="680" cy="80" r="1" fill="#FF2D78" opacity="0.6"/>
+  <circle cx="200" cy="500" r="1.5" fill="#B24BF3" opacity="0.4"/>
+  <circle cx="600" cy="520" r="1" fill="#00F0FF" opacity="0.5"/>
+  <circle cx="100" cy="350" r="2" fill="#FF2D78" opacity="0.3"/>
+  <circle cx="700" cy="300" r="1.5" fill="#B24BF3" opacity="0.5"/>
+
+  <!-- Pedestal / base platform -->
+  <g filter="url(#glowPurple)">
+    <rect x="310" y="440" width="180" height="15" rx="3" fill="#1A1A3A" stroke="#B24BF3" stroke-width="1.5"/>
+    <rect x="330" y="455" width="140" height="12" rx="2" fill="#1A1A3A" stroke="#B24BF3" stroke-width="1" opacity="0.7"/>
+    <rect x="350" y="467" width="100" height="60" rx="3" fill="#1A1A3A" stroke="#B24BF3" stroke-width="1.5"/>
+  </g>
+
+  <!-- Base nameplate -->
+  <rect x="365" y="485" width="70" height="20" rx="2" fill="#0A0A1A" stroke="#00F0FF" stroke-width="1" opacity="0.6"/>
+  <text x="400" y="500" text-anchor="middle" font-family="monospace" font-size="10" fill="#00F0FF" opacity="0.8">#1</text>
+
+  <!-- Trophy stem -->
+  <rect x="388" y="380" width="24" height="60" rx="2" fill="#1A1A3A" stroke="url(#trophyGrad)" stroke-width="2" filter="url(#glowCyan)"/>
+
+  <!-- Trophy cup -->
+  <g filter="url(#glowCyan)">
+    <!-- Cup body -->
+    <path d="M330 200 Q330 180 350 170 L450 170 Q470 180 470 200 L460 320 Q460 370 400 380 Q340 370 340 320 Z" fill="#1A1A3A" stroke="url(#trophyGrad)" stroke-width="2.5"/>
+    <!-- Cup rim -->
+    <ellipse cx="400" cy="172" rx="62" ry="12" fill="none" stroke="#00F0FF" stroke-width="2"/>
+    <!-- Inner glow -->
+    <ellipse cx="400" cy="175" rx="50" ry="8" fill="#00F0FF" opacity="0.1"/>
+  </g>
+
+  <!-- Trophy handles -->
+  <g filter="url(#glowPink)">
+    <path d="M330 210 Q290 210 285 250 Q280 290 320 300 L340 290" fill="none" stroke="#FF2D78" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M470 210 Q510 210 515 250 Q520 290 480 300 L460 290" fill="none" stroke="#FF2D78" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Trophy decorative lines -->
+  <line x1="360" y1="220" x2="440" y2="220" stroke="#B24BF3" stroke-width="1" opacity="0.5"/>
+  <line x1="355" y1="260" x2="445" y2="260" stroke="#B24BF3" stroke-width="1" opacity="0.4"/>
+  <line x1="358" y1="300" x2="442" y2="300" stroke="#B24BF3" stroke-width="1" opacity="0.3"/>
+
+  <!-- Star on trophy -->
+  <g filter="url(#glowGold)" transform="translate(400, 240)">
+    <polygon points="0,-28 8,-10 28,-10 12,4 18,24 0,14 -18,24 -12,4 -28,-10 -8,-10" fill="none" stroke="#00F0FF" stroke-width="2"/>
+    <polygon points="0,-18 5,-7 18,-7 8,2 11,15 0,9 -11,15 -8,2 -18,-7 -5,-7" fill="#00F0FF" opacity="0.15"/>
+  </g>
+
+  <!-- Sparkle effects around trophy -->
+  <g filter="url(#glowCyan)">
+    <!-- Top sparkle -->
+    <line x1="400" y1="100" x2="400" y2="130" stroke="#00F0FF" stroke-width="1.5" opacity="0.7"/>
+    <line x1="385" y1="115" x2="415" y2="115" stroke="#00F0FF" stroke-width="1.5" opacity="0.7"/>
+    <!-- Left sparkle -->
+    <line x1="250" y1="195" x2="270" y2="195" stroke="#FF2D78" stroke-width="1.5" opacity="0.6"/>
+    <line x1="260" y1="185" x2="260" y2="205" stroke="#FF2D78" stroke-width="1.5" opacity="0.6"/>
+    <!-- Right sparkle -->
+    <line x1="530" y1="195" x2="550" y2="195" stroke="#FF2D78" stroke-width="1.5" opacity="0.6"/>
+    <line x1="540" y1="185" x2="540" y2="205" stroke="#FF2D78" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Small floating diamonds -->
+  <g filter="url(#glowPurple)" opacity="0.6">
+    <polygon points="230,140 240,150 230,160 220,150" fill="none" stroke="#B24BF3" stroke-width="1.5"/>
+    <polygon points="570,140 580,150 570,160 560,150" fill="none" stroke="#B24BF3" stroke-width="1.5"/>
+    <polygon points="300,420 306,428 300,436 294,428" fill="none" stroke="#00F0FF" stroke-width="1"/>
+    <polygon points="500,420 506,428 500,436 494,428" fill="none" stroke="#00F0FF" stroke-width="1"/>
+  </g>
+
+  <!-- Grid floor -->
+  <g opacity="0.1" stroke="#00F0FF" stroke-width="0.5">
+    <line x1="0" y1="540" x2="800" y2="540"/>
+    <line x1="0" y1="560" x2="800" y2="560"/>
+    <line x1="0" y1="580" x2="800" y2="580"/>
+    <line x1="150" y1="530" x2="150" y2="600"/>
+    <line x1="300" y1="530" x2="300" y2="600"/>
+    <line x1="500" y1="530" x2="500" y2="600"/>
+    <line x1="650" y1="530" x2="650" y2="600"/>
+  </g>
+</svg>

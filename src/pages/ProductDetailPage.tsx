@@ -5,6 +5,7 @@ import GlowCard from '../components/ui/GlowCard'
 import ProductCard from '../components/ui/ProductCard'
 import SectionHeading from '../components/ui/SectionHeading'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import OptimizedImage from '../components/ui/OptimizedImage'
 import { products } from '../data/products'
 import { cn } from '../utils/cn'
 import styles from './ProductDetailPage.module.css'
@@ -32,7 +33,18 @@ export default function ProductDetailPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className={styles.productEmoji}>{product.emoji}</span>
+          {product.image ? (
+            <OptimizedImage
+              src={product.image}
+              alt={product.name}
+              className={styles.productImg}
+              fallbackEmoji={product.emoji}
+              width={400}
+              height={400}
+            />
+          ) : (
+            <span className={styles.productEmoji}>{product.emoji}</span>
+          )}
         </motion.div>
 
         <motion.div
@@ -89,6 +101,7 @@ export default function ProductDetailPage() {
               description={p.description}
               price={p.price}
               emoji={p.emoji}
+              image={p.image}
             />
           ))}
         </div>

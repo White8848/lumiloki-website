@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import OptimizedImage from './OptimizedImage'
 import styles from './NewsCard.module.css'
 
 interface NewsCardProps {
@@ -8,6 +9,7 @@ interface NewsCardProps {
   category: string
   date: string
   emoji: string
+  image?: string
 }
 
 export default function NewsCard({
@@ -17,10 +19,24 @@ export default function NewsCard({
   category,
   date,
   emoji,
+  image,
 }: NewsCardProps) {
   return (
     <Link to={`/news/${id}`} className={styles.card}>
-      <div className={styles.image}>{emoji}</div>
+      <div className={styles.image}>
+        {image ? (
+          <OptimizedImage
+            src={image}
+            alt={title}
+            className={styles.coverImage}
+            fallbackEmoji={emoji}
+            width={400}
+            height={180}
+          />
+        ) : (
+          <span className={styles.emojiPlaceholder}>{emoji}</span>
+        )}
+      </div>
       <div className={styles.body}>
         <div className={styles.meta}>
           <span className={styles.category}>{category}</span>

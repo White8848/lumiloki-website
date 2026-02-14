@@ -1,0 +1,30 @@
+.glow {
+  position: fixed;
+  width: var(--cursor-glow-size);
+  height: var(--cursor-glow-size);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 240, 255, var(--cursor-glow-opacity)) 0%,
+    rgba(178, 75, 243, 0.04) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  will-change: left, top;
+}
+
+@media (pointer: coarse) {
+  .glow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    display: none;
+  }
+}

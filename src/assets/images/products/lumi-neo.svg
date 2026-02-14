@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glow-multi">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-pink">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#FF2D78" flood-opacity="0.7" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-cyan-neo">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="neo-top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0a28"/>
+      <stop offset="100%" stop-color="#0d0518"/>
+    </linearGradient>
+    <linearGradient id="neo-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#150822"/>
+      <stop offset="100%" stop-color="#0a0412"/>
+    </linearGradient>
+    <linearGradient id="neo-right" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#12071e"/>
+      <stop offset="100%" stop-color="#08030f"/>
+    </linearGradient>
+    <radialGradient id="bg-multi" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FF2D78" stop-opacity="0.05"/>
+      <stop offset="30%" stop-color="#B24BF3" stop-opacity="0.04"/>
+      <stop offset="60%" stop-color="#00F0FF" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <rect width="800" height="600" fill="url(#bg-multi)"/>
+  <!-- Graffiti-style splashes in background -->
+  <!-- Splash 1 - pink -->
+  <path d="M150,150 Q180,120 200,140 Q210,160 190,170 Q160,175 150,150Z" fill="#FF2D78" opacity="0.15"/>
+  <path d="M155,155 Q175,130 190,145 Q198,160 185,165 Q165,168 155,155Z" fill="#FF2D78" opacity="0.08"/>
+  <!-- Splash 2 - cyan -->
+  <path d="M600,120 Q640,100 650,130 Q645,155 620,150 Q600,145 600,120Z" fill="#00F0FF" opacity="0.12"/>
+  <!-- Splash 3 - purple -->
+  <path d="M180,400 Q210,380 220,410 Q215,435 190,430 Q170,420 180,400Z" fill="#B24BF3" opacity="0.1"/>
+  <!-- Drip effects -->
+  <line x1="195" y1="170" x2="195" y2="210" stroke="#FF2D78" stroke-width="2" opacity="0.12" stroke-linecap="round"/>
+  <line x1="640" y1="150" x2="640" y2="185" stroke="#00F0FF" stroke-width="1.5" opacity="0.1" stroke-linecap="round"/>
+  <!-- Cube body -->
+  <polygon points="400,170 540,245 400,320 260,245" fill="url(#neo-top)" stroke="#B24BF3" stroke-width="1.5"/>
+  <polygon points="260,245 400,320 400,440 260,365" fill="url(#neo-left)" stroke="#FF2D78" stroke-width="1.5"/>
+  <polygon points="400,320 540,245 540,365 400,440" fill="url(#neo-right)" stroke="#00F0FF" stroke-width="1.5"/>
+  <!-- Graffiti-style colored blocks on cube faces -->
+  <!-- Top face art -->
+  <polygon points="370,200 400,185 430,200 400,215" fill="#FF2D78" opacity="0.5" filter="url(#glow-pink)"/>
+  <polygon points="340,220 365,207 385,220 360,233" fill="#00F0FF" opacity="0.4" filter="url(#glow-cyan-neo)"/>
+  <polygon points="415,207 440,220 420,233 395,220" fill="#B24BF3" opacity="0.45" filter="url(#glow-multi)"/>
+  <polygon points="355,240 380,227 400,240 375,253" fill="#39FF14" opacity="0.35" filter="url(#glow-multi)"/>
+  <polygon points="400,240 425,227 445,240 420,253" fill="#FFAA00" opacity="0.35" filter="url(#glow-multi)"/>
+  <!-- Left face art -->
+  <rect x="280" y="275" width="30" height="25" fill="#00F0FF" opacity="0.35" transform="skewY(30) translate(-60,-190)" filter="url(#glow-cyan-neo)"/>
+  <rect x="290" y="310" width="35" height="20" fill="#FF2D78" opacity="0.3" transform="skewY(30) translate(-60,-190)" filter="url(#glow-pink)"/>
+  <rect x="275" y="345" width="25" height="22" fill="#39FF14" opacity="0.25" transform="skewY(30) translate(-60,-190)" filter="url(#glow-multi)"/>
+  <!-- Right face art -->
+  <rect x="440" y="275" width="30" height="25" fill="#FF2D78" opacity="0.35" transform="skewY(-30) translate(60,-110)" filter="url(#glow-pink)"/>
+  <rect x="450" y="310" width="35" height="20" fill="#B24BF3" opacity="0.3" transform="skewY(-30) translate(60,-110)" filter="url(#glow-multi)"/>
+  <rect x="435" y="345" width="25" height="22" fill="#FFAA00" opacity="0.25" transform="skewY(-30) translate(60,-110)" filter="url(#glow-multi)"/>
+  <!-- Star/sparkle accents -->
+  <g transform="translate(320,160)" opacity="0.6">
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="#FF2D78" stroke-width="1.5"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#FF2D78" stroke-width="1.5"/>
+    <line x1="-5" y1="-5" x2="5" y2="5" stroke="#FF2D78" stroke-width="1"/>
+    <line x1="5" y1="-5" x2="-5" y2="5" stroke="#FF2D78" stroke-width="1"/>
+  </g>
+  <g transform="translate(500,170)" opacity="0.5">
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#00F0FF" stroke-width="1.5"/>
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#00F0FF" stroke-width="1.5"/>
+    <line x1="-4" y1="-4" x2="4" y2="4" stroke="#00F0FF" stroke-width="1"/>
+    <line x1="4" y1="-4" x2="-4" y2="4" stroke="#00F0FF" stroke-width="1"/>
+  </g>
+  <g transform="translate(580,380)" opacity="0.4">
+    <line x1="0" y1="-7" x2="0" y2="7" stroke="#B24BF3" stroke-width="1.5"/>
+    <line x1="-7" y1="0" x2="7" y2="0" stroke="#B24BF3" stroke-width="1.5"/>
+  </g>
+  <!-- Paint drips from cube -->
+  <line x1="300" y1="365" x2="298" y2="400" stroke="#FF2D78" stroke-width="2" opacity="0.3" stroke-linecap="round"/>
+  <line x1="500" y1="365" x2="502" y2="395" stroke="#00F0FF" stroke-width="2" opacity="0.3" stroke-linecap="round"/>
+  <line x1="400" y1="440" x2="400" y2="465" stroke="#B24BF3" stroke-width="2" opacity="0.3" stroke-linecap="round"/>
+  <!-- Floor reflection -->
+  <ellipse cx="400" cy="475" rx="150" ry="20" fill="#B24BF3" opacity="0.04"/>
+  <!-- Label -->
+  <text x="400" y="530" text-anchor="middle" font-family="'Courier New', monospace" font-size="26" font-weight="bold" fill="#FF2D78" filter="url(#glow-pink)" letter-spacing="10">LUMI NEO</text>
+  <text x="400" y="555" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#B24BF3" opacity="0.5" letter-spacing="5">COLLAB EDITION</text>
+</svg>

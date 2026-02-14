@@ -1,5 +1,11 @@
 import type { NewsArticle } from '../types/news'
 
+import newsLaunchImg from '../assets/images/news/news-launch.svg'
+import newsCompetitionImg from '../assets/images/news/news-competition.svg'
+import newsTechImg from '../assets/images/news/news-tech.svg'
+import newsCollabImg from '../assets/images/news/news-collab.svg'
+import newsAppImg from '../assets/images/news/news-app.svg'
+
 export const newsArticles: NewsArticle[] = [
   {
     id: 'lumi-pro-launch',
@@ -18,6 +24,7 @@ Lumi Pro 现已正式开售，首发价 ¥599。`,
     category: '产品发布',
     date: '2024-03-15',
     emoji: '🚀',
+    image: newsLaunchImg,
     featured: true,
   },
   {
@@ -37,6 +44,7 @@ Lumi Pro 现已正式开售，首发价 ¥599。`,
     category: '品牌活动',
     date: '2024-02-20',
     emoji: '🏆',
+    image: newsCompetitionImg,
   },
   {
     id: 'sensor-tech',
@@ -55,6 +63,7 @@ Lumi Pro 现已正式开售，首发价 ¥599。`,
     category: '技术分享',
     date: '2024-01-10',
     emoji: '🔬',
+    image: newsTechImg,
   },
   {
     id: 'collab-streetwear',
@@ -71,6 +80,7 @@ Lumi Neo 联名版将融合 URBAN CUBE 标志性的涂鸦艺术风格和 Lumilok
     category: '产品发布',
     date: '2024-01-05',
     emoji: '🎨',
+    image: newsCollabImg,
   },
   {
     id: 'app-update-3',
@@ -89,6 +99,7 @@ Lumi Neo 联名版将融合 URBAN CUBE 标志性的涂鸦艺术风格和 Lumilok
     category: '技术分享',
     date: '2023-12-20',
     emoji: '📱',
+    image: newsAppImg,
   },
 ]
 

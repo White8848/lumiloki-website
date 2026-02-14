@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { cn } from '../../utils/cn'
+import OptimizedImage from './OptimizedImage'
 import styles from './ProductCard.module.css'
 
 interface ProductCardProps {
@@ -8,6 +9,7 @@ interface ProductCardProps {
   description: string
   price: string
   emoji: string
+  image?: string
   featured?: boolean
 }
 
@@ -17,6 +19,7 @@ export default function ProductCard({
   description,
   price,
   emoji,
+  image,
   featured = false,
 }: ProductCardProps) {
   return (
@@ -26,7 +29,18 @@ export default function ProductCard({
     >
       <div className={styles.imageWrapper}>
         {featured && <span className={styles.featuredBadge}>HOT</span>}
-        <span className={styles.imagePlaceholder}>{emoji}</span>
+        {image ? (
+          <OptimizedImage
+            src={image}
+            alt={name}
+            className={styles.productImage}
+            fallbackEmoji={emoji}
+            width={200}
+            height={200}
+          />
+        ) : (
+          <span className={styles.imagePlaceholder}>{emoji}</span>
+        )}
       </div>
       <div className={styles.info}>
         <h3 className={styles.name}>{name}</h3>

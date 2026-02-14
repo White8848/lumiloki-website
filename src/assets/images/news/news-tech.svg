@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowPurple" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#B24BF3" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="chipGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#B24BF3"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A0A1A"/>
+
+  <!-- Background glow -->
+  <ellipse cx="400" cy="300" rx="250" ry="200" fill="url(#centerGlow)"/>
+
+  <!-- Stars -->
+  <circle cx="80" cy="60" r="1.5" fill="#00F0FF" opacity="0.7"/>
+  <circle cx="220" cy="130" r="1" fill="#B24BF3" opacity="0.5"/>
+  <circle cx="680" cy="80" r="2" fill="#00F0FF" opacity="0.6"/>
+  <circle cx="720" cy="220" r="1" fill="#B24BF3" opacity="0.8"/>
+  <circle cx="100" cy="500" r="1.5" fill="#00F0FF" opacity="0.4"/>
+  <circle cx="650" cy="480" r="1" fill="#B24BF3" opacity="0.6"/>
+
+  <!-- Circuit board traces -->
+  <g stroke="#00F0FF" stroke-width="1" opacity="0.25" fill="none">
+    <path d="M200 300 H320 V250 H350"/>
+    <path d="M200 320 H300 V380 H350"/>
+    <path d="M450 250 H480 V300 H600"/>
+    <path d="M450 380 H500 V320 H600"/>
+    <path d="M400 200 V170 H300 V140"/>
+    <path d="M400 430 V460 H500 V490"/>
+  </g>
+
+  <!-- Circuit nodes -->
+  <g fill="#00F0FF" opacity="0.5">
+    <circle cx="200" cy="300" r="3"/>
+    <circle cx="200" cy="320" r="3"/>
+    <circle cx="600" cy="300" r="3"/>
+    <circle cx="600" cy="320" r="3"/>
+    <circle cx="300" cy="140" r="3"/>
+    <circle cx="500" cy="490" r="3"/>
+  </g>
+
+  <!-- Central chip / sensor -->
+  <g filter="url(#glowCyan)">
+    <rect x="350" y="250" width="100" height="130" rx="5" fill="#1A1A3A" stroke="url(#chipGrad)" stroke-width="2"/>
+    <!-- Chip pins -->
+    <g stroke="#00F0FF" stroke-width="1.5">
+      <line x1="360" y1="250" x2="360" y2="235"/>
+      <line x1="380" y1="250" x2="380" y2="235"/>
+      <line x1="400" y1="250" x2="400" y2="235"/>
+      <line x1="420" y1="250" x2="420" y2="235"/>
+      <line x1="440" y1="250" x2="440" y2="235"/>
+      <line x1="360" y1="380" x2="360" y2="395"/>
+      <line x1="380" y1="380" x2="380" y2="395"/>
+      <line x1="400" y1="380" x2="400" y2="395"/>
+      <line x1="420" y1="380" x2="420" y2="395"/>
+      <line x1="440" y1="380" x2="440" y2="395"/>
+      <line x1="350" y1="270" x2="335" y2="270"/>
+      <line x1="350" y1="290" x2="335" y2="290"/>
+      <line x1="350" y1="310" x2="335" y2="310"/>
+      <line x1="350" y1="340" x2="335" y2="340"/>
+      <line x1="350" y1="360" x2="335" y2="360"/>
+      <line x1="450" y1="270" x2="465" y2="270"/>
+      <line x1="450" y1="290" x2="465" y2="290"/>
+      <line x1="450" y1="310" x2="465" y2="310"/>
+      <line x1="450" y1="340" x2="465" y2="340"/>
+      <line x1="450" y1="360" x2="465" y2="360"/>
+    </g>
+    <!-- Chip inner markings -->
+    <circle cx="400" cy="300" r="20" fill="none" stroke="#B24BF3" stroke-width="1.5" opacity="0.8"/>
+    <circle cx="400" cy="300" r="8" fill="#B24BF3" opacity="0.3"/>
+    <text x="400" y="345" text-anchor="middle" fill="#00F0FF" font-size="10" font-family="monospace" opacity="0.7">IMU-6X</text>
+  </g>
+
+  <!-- Axis indicators (6-axis) -->
+  <g filter="url(#glowPurple)" opacity="0.8">
+    <!-- X axis -->
+    <line x1="380" y1="300" x2="340" y2="300" stroke="#FF2D78" stroke-width="2"/>
+    <polygon points="340,296 330,300 340,304" fill="#FF2D78"/>
+    <!-- Y axis -->
+    <line x1="400" y1="280" x2="400" y2="240" stroke="#00F0FF" stroke-width="2"/>
+    <polygon points="396,240 400,230 404,240" fill="#00F0FF"/>
+    <!-- Z axis -->
+    <line x1="415" y1="285" x2="440" y2="260" stroke="#B24BF3" stroke-width="2"/>
+    <polygon points="444,264 448,254 436,258" fill="#B24BF3"/>
+  </g>
+
+  <!-- Data wave visualization -->
+  <path d="M100 500 Q150 480 200 500 Q250 520 300 500 Q350 480 400 500 Q450 520 500 500 Q550 480 600 500 Q650 520 700 500"
+        fill="none" stroke="#00F0FF" stroke-width="1.5" opacity="0.3"/>
+  <path d="M100 520 Q150 500 200 520 Q250 540 300 520 Q350 500 400 520 Q450 540 500 520 Q550 500 600 520 Q650 540 700 520"
+        fill="none" stroke="#B24BF3" stroke-width="1" opacity="0.2"/>
+</svg>

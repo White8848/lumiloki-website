@@ -3,34 +3,12 @@ import { motion } from 'motion/react'
 import SectionHeading from '../ui/SectionHeading'
 import ProductCard from '../ui/ProductCard'
 import ScrollReveal from '../ui/ScrollReveal'
+import { products } from '../../data/products'
 import styles from './ProductShowcase.module.css'
 
-const showcaseProducts = [
-  {
-    id: 'lumi-pro',
-    name: 'Lumi Pro 旗舰版',
-    description: '全新旗舰级智能发光魔方，六轴传感器 + 全面LED + BLE 5.0，竞速与炫彩兼得。',
-    price: '¥599',
-    emoji: '🟦',
-    featured: true,
-  },
-  {
-    id: 'lumi-lite',
-    name: 'Lumi Lite 青春版',
-    description: '轻量化设计，入门级智能发光魔方，体验全彩灯效与蓝牙连接。',
-    price: '¥299',
-    emoji: '🟩',
-  },
-  {
-    id: 'lumi-speed',
-    name: 'Lumi Speed 竞速版',
-    description: '专为速拧选手打造，极致手感与精准计时完美结合。',
-    price: '¥499',
-    emoji: '🟧',
-  },
-]
-
 export default function ProductShowcase() {
+  const showcaseProducts = products.filter(p => p.featured || ['lumi-lite', 'lumi-speed'].includes(p.id)).slice(0, 3)
+
   return (
     <section className={styles.section}>
       <div className="container">
@@ -50,7 +28,15 @@ export default function ProductShowcase() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
             >
-              <ProductCard {...product} />
+              <ProductCard
+                id={product.id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                emoji={product.emoji}
+                image={product.image}
+                featured={product.featured}
+              />
             </motion.div>
           ))}
         </div>

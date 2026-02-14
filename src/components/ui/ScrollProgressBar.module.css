@@ -1,0 +1,16 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--scroll-progress-height);
+  background: var(--gradient-full);
+  z-index: 9999;
+  transition: width 50ms linear;
+  will-change: width;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
+}
