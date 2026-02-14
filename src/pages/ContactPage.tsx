@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { SiWechat, SiSinaweibo, SiTiktok, SiBilibili, SiXiaohongshu } from 'react-icons/si'
 import SectionHeading from '../components/ui/SectionHeading'
 import GlowButton from '../components/ui/GlowButton'
 import GlowCard from '../components/ui/GlowCard'
@@ -6,6 +7,14 @@ import ScrollReveal from '../components/ui/ScrollReveal'
 import { SOCIAL_LINKS } from '../utils/constants'
 import { cn } from '../utils/cn'
 import styles from './ContactPage.module.css'
+
+const socialIconMap: Record<string, React.ReactNode> = {
+  wechat: <SiWechat />,
+  weibo: <SiSinaweibo />,
+  douyin: <SiTiktok />,
+  bilibili: <SiBilibili />,
+  xiaohongshu: <SiXiaohongshu />,
+}
 
 interface FormData {
   name: string
@@ -198,11 +207,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                   >
                     <span className={styles.socialItemIcon}>
-                      {social.label === '微信' && '💬'}
-                      {social.label === '微博' && '📢'}
-                      {social.label === '抖音' && '🎵'}
-                      {social.label === 'B站' && '📺'}
-                      {social.label === '小红书' && '📕'}
+                      {socialIconMap[social.icon]}
                     </span>
                     <span className={styles.socialItemLabel}>
                       {social.label}

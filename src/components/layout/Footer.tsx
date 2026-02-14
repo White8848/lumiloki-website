@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom'
+import { SiWechat, SiSinaweibo, SiTiktok, SiBilibili, SiXiaohongshu } from 'react-icons/si'
 import { SOCIAL_LINKS } from '../../utils/constants'
 import styles from './Footer.module.css'
+
+const socialIconMap: Record<string, React.ReactNode> = {
+  wechat: <SiWechat />,
+  weibo: <SiSinaweibo />,
+  douyin: <SiTiktok />,
+  bilibili: <SiBilibili />,
+  xiaohongshu: <SiXiaohongshu />,
+}
 
 export default function Footer() {
   return (
@@ -31,6 +40,7 @@ export default function Footer() {
               <li><Link to="/brand">品牌故事</Link></li>
               <li><Link to="/news">新闻动态</Link></li>
               <li><Link to="/contact">联系我们</Link></li>
+              <li><Link to="/careers">招贤纳士</Link></li>
             </ul>
           </div>
 
@@ -46,7 +56,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {social.label.charAt(0)}
+                  {socialIconMap[social.icon]}
                 </a>
               ))}
             </div>
