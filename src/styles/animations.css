@@ -61,3 +61,13 @@
     opacity: 0;
   }
 }
+
+/* === Glass Shine (liquid glass highlight sweep) === */
+@keyframes glassShine {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
