@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
+import Footer from './components/layout/Footer'
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
       <main>
         <Outlet />
       </main>
-      {/* Footer will be added in Task 5 */}
+      <Footer />
     </div>
   )
 }
