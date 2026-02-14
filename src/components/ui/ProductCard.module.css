@@ -6,6 +6,7 @@
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   text-decoration: none;
   display: block;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .card::before {
@@ -14,7 +15,7 @@
   inset: 0;
   border-radius: var(--radius-md);
   padding: 1px;
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.08), rgba(178, 75, 243, 0.08));
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.08), rgba(167, 139, 250, 0.08));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -23,12 +24,12 @@
 }
 
 .card:hover::before {
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.4), rgba(178, 75, 243, 0.4));
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(167, 139, 250, 0.3));
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.12);
+  box-shadow: var(--shadow-lg);
 }
 
 .imageWrapper {
@@ -37,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(255, 107, 107, 0.04) 0%, transparent 70%);
   min-height: 200px;
   overflow: hidden;
 }
@@ -92,7 +93,7 @@
 }
 
 .featured {
-  border: 1px solid rgba(0, 240, 255, 0.15);
+  border: 1px solid rgba(255, 107, 107, 0.15);
 }
 
 .featuredBadge {

@@ -35,7 +35,7 @@
   background: var(--gradient-primary);
   border-radius: var(--radius-full);
   margin: var(--space-6) auto 0;
-  box-shadow: var(--glow-cyan);
+  box-shadow: var(--shadow-sm);
 }
 
 @media (max-width: 639px) {

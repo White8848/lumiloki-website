@@ -8,8 +8,8 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.06) 0%, transparent 70%);
-  border: 1px solid rgba(0, 240, 255, 0.08);
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.04) 0%, transparent 70%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .mainImageInner {
@@ -35,7 +35,7 @@
 }
 
 .thumbnail:hover {
-  border-color: rgba(0, 240, 255, 0.3);
+  border-color: rgba(255, 107, 107, 0.3);
 }
 
 .thumbnailActive {

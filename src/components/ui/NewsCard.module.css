@@ -4,14 +4,14 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   text-decoration: none;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 240, 255, 0.08);
-  border-color: rgba(0, 240, 255, 0.15);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 107, 107, 0.15);
 }
 
 .image {
@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   height: 180px;
-  background: radial-gradient(circle at center, rgba(178, 75, 243, 0.06) 0%, var(--color-bg-card) 70%);
+  background: radial-gradient(circle at center, rgba(167, 139, 250, 0.06) 0%, var(--color-bg-card) 70%);
   overflow: hidden;
 }
 
