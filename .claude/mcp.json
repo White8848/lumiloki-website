@@ -2,7 +2,7 @@
   "mcpServers": {
     "jimeng": {
       "command": "npx",
-      "args": ["-y", "jimeng-ai-mcp"]
+      "args": ["-y", "jimeng-mcp-v4@4.0.0"]
     }
   }
 }
