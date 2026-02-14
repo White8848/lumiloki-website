@@ -10,6 +10,9 @@ Lumiloki 发光智能魔方品牌官网 — 基于 React + TypeScript + Vite 构
 - **动画**: motion@12 + CSS keyframes
 - **样式**: CSS Modules + CSS 变量
 - **字体**: Nunito + Noto Sans SC（Google Fonts）
+- **测试**: Vitest + Testing Library
+- **截图调试**: Playwright（headless Chromium）
+- **AI 图片生成**: 即梦 API（火山引擎 MCP）
 - **部署**: GitHub Pages（GitHub Actions 自动构建）
 
 ## 页面结构
@@ -42,6 +45,12 @@ npm run preview
 
 # 代码检查
 npm run lint
+
+# 运行测试
+npm run test
+
+# 清理临时文件（截图、构建产物）
+npm run clean
 ```
 
 ## 项目结构
@@ -69,3 +78,18 @@ src/
 - 运行时: Node 20
 - 构建命令: `npm ci && npm run build`
 - 输出目录: `dist/`
+
+## AI 工作流
+
+本项目使用 AI 辅助开发，工作流规范定义在 [`CLAUDE.md`](./CLAUDE.md) 中。核心流程：
+
+1. **规划** — 评估任务复杂度，复杂任务自动进入 Plan 模式进行方案设计，简单任务直接拆分为小任务清单
+2. **分支** — 从最新 main 创建功能分支（`<type>/<description>`），禁止直接在 main 上开发
+3. **迭代** — 每个小任务循环执行：实现 → lint + test + build 验证 → git commit
+4. **自查** — `git diff` 审查改动，确认无调试代码或无关修改
+5. **PR** — 完成后创建 Pull Request，经 code review + CI 通过后合并
+
+其他能力：
+- **视觉调试** — 通过 Playwright headless 截图验证页面渲染效果
+- **图片生成** — 通过即梦 API（MCP）生成品牌风格图片素材
+- **上下文管理** — 长任务自动 compact，保留关键进度信息
