@@ -1,19 +1,30 @@
-/* === Glow Pulse === */
-@keyframes glowPulse {
+/* === Soft Pulse (replaces glowPulse) === */
+@keyframes softPulse {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3), 0 0 30px rgba(0, 240, 255, 0.15);
+    box-shadow: var(--shadow-sm);
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 60px rgba(0, 240, 255, 0.25);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: var(--shadow-sm);
+  }
+  50% {
+    box-shadow: var(--shadow-md);
   }
 }
 
 @keyframes glowPulseText {
   0%, 100% {
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3), 0 0 30px rgba(0, 240, 255, 0.15);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
   }
   50% {
-    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 60px rgba(0, 240, 255, 0.25);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
   }
 }
 
@@ -27,25 +38,24 @@
   }
 }
 
-/* === Neon Flicker (subtle) === */
-@keyframes neonFlicker {
+/* === Color Shift (new) === */
+@keyframes colorShift {
+  0% { color: #FF6B6B; }
+  25% { color: #4ECDC4; }
+  50% { color: #A78BFA; }
+  75% { color: #60A5FA; }
+  100% { color: #FF6B6B; }
+}
+
+/* === Float Bubble (new) === */
+@keyframes floatBubble {
   0%, 100% {
-    opacity: 1;
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
   }
-  92% {
-    opacity: 1;
-  }
-  93% {
+  50% {
+    transform: translateY(-20px) scale(1.1);
     opacity: 0.8;
-  }
-  94% {
-    opacity: 1;
-  }
-  96% {
-    opacity: 0.9;
-  }
-  97% {
-    opacity: 1;
   }
 }
 
@@ -160,19 +170,6 @@
   }
 }
 
-/* === Mesh Drift === */
-@keyframes meshDrift {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-20px, -15px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
 /* === Shimmer (skeleton) === */
 @keyframes shimmer {
   0% {
@@ -205,30 +202,6 @@
   }
   100% {
     background-position: 0% 50%;
-  }
-}
-
-/* === Glitch Text === */
-@keyframes glitchText {
-  0%, 100% {
-    clip-path: inset(0 0 0 0);
-    transform: translate(0);
-  }
-  20% {
-    clip-path: inset(20% 0 60% 0);
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    clip-path: inset(40% 0 20% 0);
-    transform: translate(2px, -1px);
-  }
-  60% {
-    clip-path: inset(60% 0 10% 0);
-    transform: translate(-1px, 1px);
-  }
-  80% {
-    clip-path: inset(10% 0 70% 0);
-    transform: translate(1px, -2px);
   }
 }
 

@@ -1,33 +1,41 @@
 :root {
   /* === Colors === */
-  --color-primary: #00F0FF;
-  --color-secondary: #FF2D78;
-  --color-accent: #39FF14;
-  --color-purple: #B24BF3;
+  --color-primary: #FF6B6B;
+  --color-secondary: #4ECDC4;
+  --color-accent: #FFE66D;
+  --color-purple: #A78BFA;
+  --color-blue: #60A5FA;
 
-  --color-bg-deep: #050510;
-  --color-bg: #0A0A1A;
-  --color-bg-card: #0F0F2A;
-  --color-bg-card-hover: #141432;
+  --color-bg-deep: #FFFFFF;
+  --color-bg: #F8F9FC;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-hover: #F0F2F8;
 
-  --color-text: #EAEAFF;
-  --color-text-secondary: #8888AA;
-  --color-text-muted: #555577;
+  --color-text: #1D1D1F;
+  --color-text-secondary: #6E6E73;
+  --color-text-muted: #AEAEB2;
+
+  --color-on-primary: #FFFFFF;
 
   /* === Gradients === */
-  --gradient-primary: linear-gradient(135deg, #00F0FF, #B24BF3);
-  --gradient-hot: linear-gradient(135deg, #FF2D78, #B24BF3);
-  --gradient-neon: linear-gradient(135deg, #39FF14, #00F0FF);
-  --gradient-full: linear-gradient(135deg, #00F0FF, #B24BF3, #FF2D78);
+  --gradient-primary: linear-gradient(135deg, #FF6B6B, #A78BFA);
+  --gradient-hot: linear-gradient(135deg, #4ECDC4, #A78BFA);
+  --gradient-neon: linear-gradient(135deg, #FFE66D, #FF6B6B);
+  --gradient-full: linear-gradient(135deg, #FF6B6B, #A78BFA, #4ECDC4);
 
-  /* === Glow Shadows === */
-  --glow-cyan: 0 0 10px rgba(0, 240, 255, 0.3), 0 0 30px rgba(0, 240, 255, 0.15);
-  --glow-pink: 0 0 10px rgba(255, 45, 120, 0.3), 0 0 30px rgba(255, 45, 120, 0.15);
-  --glow-purple: 0 0 10px rgba(178, 75, 243, 0.3), 0 0 30px rgba(178, 75, 243, 0.15);
-  --glow-green: 0 0 10px rgba(57, 255, 20, 0.3), 0 0 30px rgba(57, 255, 20, 0.15);
+  /* === Shadows (replacing glow) === */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.10);
+  --shadow-color: 0 8px 30px rgba(255,107,107,0.15);
+
+  --glow-cyan: var(--shadow-md);
+  --glow-pink: var(--shadow-md);
+  --glow-purple: var(--shadow-md);
+  --glow-green: var(--shadow-md);
 
   /* === Typography === */
-  --font-display: 'Orbitron', sans-serif;
+  --font-display: 'Nunito', sans-serif;
   --font-body: 'Noto Sans SC', sans-serif;
 
   --text-xs: 0.75rem;
@@ -61,9 +69,9 @@
   --container-padding: var(--space-6);
 
   /* === Border Radius === */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
 
   /* === Transitions === */
@@ -86,16 +94,12 @@
   --page-transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* === Particle Colors === */
-  --particle-primary: 0, 240, 255;
-  --particle-secondary: 178, 75, 243;
-  --particle-accent: 255, 45, 120;
+  --particle-primary: 255, 107, 107;
+  --particle-secondary: 167, 139, 250;
+  --particle-accent: 78, 205, 196;
 
   /* === Scroll Progress === */
   --scroll-progress-height: 3px;
-
-  /* === Cursor Glow === */
-  --cursor-glow-size: 400px;
-  --cursor-glow-opacity: 0.12;
 }
 
 @media (max-width: 640px) {

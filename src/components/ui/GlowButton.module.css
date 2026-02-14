@@ -23,7 +23,7 @@
 
 .primary {
   background: var(--gradient-primary);
-  color: var(--color-bg-deep);
+  color: var(--color-on-primary);
   border: none;
 }
 

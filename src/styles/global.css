@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-deep);
+  background: #F8F9FC;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* === Selection === */
 ::selection {
-  background: rgba(0, 240, 255, 0.25);
+  background: rgba(255, 107, 107, 0.2);
   color: var(--color-text);
 }
 

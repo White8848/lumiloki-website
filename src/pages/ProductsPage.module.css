@@ -33,7 +33,7 @@
 .filterBtnActive {
   background: var(--gradient-primary);
   border-color: transparent;
-  color: var(--color-bg-deep);
+  color: var(--color-on-primary);
 }
 
 .grid {

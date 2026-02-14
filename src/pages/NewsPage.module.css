@@ -33,7 +33,7 @@
 .filterBtnActive {
   background: var(--gradient-primary);
   border-color: transparent;
-  color: var(--color-bg-deep);
+  color: var(--color-on-primary);
 }
 
 .featured {
@@ -81,7 +81,7 @@
   font-weight: 600;
   padding: var(--space-1) var(--space-3);
   background: var(--gradient-primary);
-  color: var(--color-bg-deep);
+  color: var(--color-on-primary);
   border-radius: var(--radius-full);
   margin-bottom: var(--space-3);
   letter-spacing: 0.5px;
