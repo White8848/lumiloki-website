@@ -59,9 +59,22 @@
 @media (pointer: coarse) {
   .inner {
     transition: none;
+    transform-style: flat;
   }
 
   .flipCard:hover .inner {
     transform: none;
+  }
+
+  .front,
+  .back {
+    position: relative;
+    backface-visibility: visible;
+    inset: auto;
+  }
+
+  .back {
+    transform: none;
+    margin-top: var(--space-4);
   }
 }

@@ -132,4 +132,12 @@
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .featuredContent {
+    padding: var(--space-5);
+  }
+
+  .featuredTitle {
+    font-size: var(--text-xl);
+  }
 }

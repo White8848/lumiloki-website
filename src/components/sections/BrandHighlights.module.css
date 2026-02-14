@@ -95,3 +95,13 @@
     font-size: var(--text-2xl);
   }
 }
+
+@media (max-width: 639px) {
+  .blockTitle {
+    font-size: var(--text-xl);
+  }
+
+  .imageWrapper {
+    font-size: 48px;
+  }
+}

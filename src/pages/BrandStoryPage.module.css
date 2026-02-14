@@ -125,7 +125,11 @@
   overflow: hidden;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 639px) {
+  .hero {
+    padding-top: calc(70px + var(--space-8));
+  }
+
   .heroTitle {
     font-size: var(--text-3xl);
   }

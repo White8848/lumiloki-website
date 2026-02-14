@@ -106,5 +106,10 @@
   :root {
     --section-gap: var(--space-16);
     --container-padding: var(--space-4);
+
+    --text-hero: 3rem;
+    --text-5xl: 2.25rem;
+    --text-4xl: 2rem;
+    --text-3xl: 1.75rem;
   }
 }

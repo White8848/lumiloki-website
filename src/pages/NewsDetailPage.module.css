@@ -149,6 +149,10 @@
     font-size: 64px;
   }
 
+  .share {
+    flex-wrap: wrap;
+  }
+
   .relatedGrid {
     grid-template-columns: 1fr;
   }
