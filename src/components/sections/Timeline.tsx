@@ -12,21 +12,15 @@ export default function Timeline() {
 
         return (
           <div key={item.year} className={styles.item}>
-            <div
-              className={styles.dot}
-              style={{ background: item.color }}
-            >
-              <div
-                className={styles.dotInner}
-                style={{ background: item.color }}
-              />
+            <div className={styles.dot}>
+              <div className={styles.dotInner} />
             </div>
 
             {isLeft ? (
               <>
                 <ScrollReveal direction="left" delay={0.1}>
                   <div className={styles.contentLeft}>
-                    <div className={styles.year} style={{ color: item.color }}>
+                    <div className={styles.year}>
                       {item.year}
                     </div>
                     <h3 className={styles.title}>{item.title}</h3>
@@ -40,7 +34,7 @@ export default function Timeline() {
                 <div className={styles.placeholder} />
                 <ScrollReveal direction="right" delay={0.1}>
                   <div className={styles.contentRight}>
-                    <div className={styles.year} style={{ color: item.color }}>
+                    <div className={styles.year}>
                       {item.year}
                     </div>
                     <h3 className={styles.title}>{item.title}</h3>

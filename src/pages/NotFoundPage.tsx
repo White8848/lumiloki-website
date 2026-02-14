@@ -1,6 +1,5 @@
 import { motion } from 'motion/react'
 import GlowButton from '../components/ui/GlowButton'
-import GlitchText from '../components/effects/GlitchText'
 import styles from './NotFoundPage.module.css'
 
 export default function NotFoundPage() {
@@ -30,7 +29,7 @@ export default function NotFoundPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <GlitchText text="404" as="span" alwaysActive />
+        404
       </motion.div>
 
       <motion.p

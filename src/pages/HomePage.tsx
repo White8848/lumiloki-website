@@ -9,13 +9,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <GlowDivider />
       <FeaturesSection />
       <GlowDivider />
       <ProductShowcase />
-      <GlowDivider />
       <BrandHighlights />
-      <GlowDivider />
       <CTASection />
     </>
   )

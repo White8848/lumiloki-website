@@ -8,7 +8,7 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.04) 0%, transparent 70%);
+  background: var(--color-bg-subtle);
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -35,7 +35,7 @@
 }
 
 .thumbnail:hover {
-  border-color: rgba(255, 107, 107, 0.3);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .thumbnailActive {

@@ -1,12 +1,6 @@
 .divider {
-  width: 100%;
+  width: 80px;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 107, 107, 0.2),
-    rgba(167, 139, 250, 0.2),
-    transparent
-  );
-  margin: var(--section-gap) 0;
+  background: #DDD;
+  margin: var(--section-gap) auto;
 }

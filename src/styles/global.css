@@ -68,21 +68,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F8F9FC;
+  background: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-primary), var(--color-purple));
+  background: #CCC;
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+  background: #AAA;
 }
 
 /* === Selection === */
 ::selection {
-  background: rgba(255, 107, 107, 0.2);
+  background: rgba(232, 85, 61, 0.2);
   color: var(--color-text);
 }
 

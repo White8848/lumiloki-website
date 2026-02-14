@@ -1,24 +1,15 @@
 .section {
   padding: var(--space-20) 0;
-  background: linear-gradient(135deg, #FF6B6B, #A78BFA, #4ECDC4, #60A5FA, #FFE66D);
-  background-size: 300% 300%;
-  animation: gradientFlow 8s ease infinite;
+  background: var(--color-text);
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.15);
-}
-
 .bgImage {
   position: absolute;
   inset: 0;
-  opacity: 0.15;
+  opacity: 0.1;
   pointer-events: none;
 }
 
@@ -35,14 +26,14 @@
 
 .title {
   font-size: var(--text-4xl);
-  font-weight: 900;
+  font-weight: 800;
   color: #FFFFFF;
   margin-bottom: var(--space-4);
 }
 
 .subtitle {
   font-size: var(--text-lg);
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: var(--space-8);
   max-width: 500px;
   margin-left: auto;

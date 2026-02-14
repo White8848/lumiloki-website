@@ -18,7 +18,7 @@
   letter-spacing: 1px;
   padding: var(--space-2) var(--space-5);
   border-radius: var(--radius-full);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border);
   background: transparent;
   color: var(--color-text-secondary);
   cursor: pointer;
@@ -26,12 +26,12 @@
 }
 
 .filterBtn:hover {
-  border-color: rgba(255, 107, 107, 0.3);
+  border-color: rgba(0, 0, 0, 0.2);
   color: var(--color-text);
 }
 
 .filterBtnActive {
-  background: var(--gradient-primary);
+  background: var(--color-primary);
   border-color: transparent;
   color: var(--color-on-primary);
 }

@@ -12,17 +12,17 @@ interface ScrollRevealProps {
 }
 
 const offsets: Record<Direction, { x?: number; y?: number }> = {
-  up: { y: 40 },
-  down: { y: -40 },
-  left: { x: -60 },
-  right: { x: 60 },
+  up: { y: 20 },
+  down: { y: -20 },
+  left: { x: -30 },
+  right: { x: 30 },
 }
 
 export default function ScrollReveal({
   children,
   direction = 'up',
   delay = 0,
-  duration = 0.6,
+  duration = 0.4,
   className,
 }: ScrollRevealProps) {
   const offset = offsets[direction]

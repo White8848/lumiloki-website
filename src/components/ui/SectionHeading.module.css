@@ -16,7 +16,7 @@
 
 .title {
   font-size: var(--text-4xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-text);
   margin-bottom: var(--space-4);
 }
@@ -30,12 +30,11 @@
 }
 
 .underline {
-  width: 60px;
-  height: 3px;
-  background: var(--gradient-primary);
+  width: 40px;
+  height: 2px;
+  background: var(--color-primary);
   border-radius: var(--radius-full);
   margin: var(--space-6) auto 0;
-  box-shadow: var(--shadow-sm);
 }
 
 @media (max-width: 639px) {

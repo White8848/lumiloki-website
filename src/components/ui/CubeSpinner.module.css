@@ -29,51 +29,45 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 1.5px solid rgba(255, 107, 107, 0.3);
+  border: 1.5px solid rgba(232, 85, 61, 0.25);
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 0 15px rgba(255, 107, 107, 0.03);
 }
 
 .front {
-  background: rgba(255, 107, 107, 0.06);
+  background: rgba(232, 85, 61, 0.05);
   transform: translateZ(30px);
-  box-shadow: var(--shadow-sm), inset 0 0 15px rgba(255, 107, 107, 0.03);
+  box-shadow: var(--shadow-sm);
 }
 
 .back {
-  background: rgba(167, 139, 250, 0.06);
+  background: rgba(232, 85, 61, 0.04);
   transform: rotateY(180deg) translateZ(30px);
-  box-shadow: var(--shadow-sm), inset 0 0 15px rgba(167, 139, 250, 0.03);
-  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .right {
-  background: rgba(78, 205, 196, 0.06);
+  background: rgba(232, 85, 61, 0.04);
   transform: rotateY(90deg) translateZ(30px);
-  box-shadow: var(--shadow-sm), inset 0 0 15px rgba(78, 205, 196, 0.03);
-  border-color: rgba(78, 205, 196, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .left {
-  background: rgba(255, 230, 109, 0.06);
+  background: rgba(232, 85, 61, 0.04);
   transform: rotateY(-90deg) translateZ(30px);
-  box-shadow: var(--shadow-sm), inset 0 0 15px rgba(255, 230, 109, 0.03);
-  border-color: rgba(255, 230, 109, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .top {
-  background: rgba(96, 165, 250, 0.05);
+  background: rgba(232, 85, 61, 0.03);
   transform: rotateX(90deg) translateZ(30px);
-  border-color: rgba(96, 165, 250, 0.3);
 }
 
 .bottom {
-  background: rgba(167, 139, 250, 0.05);
+  background: rgba(232, 85, 61, 0.03);
   transform: rotateX(-90deg) translateZ(30px);
-  border-color: rgba(167, 139, 250, 0.3);
 }
 
 /* Small size adjustments */

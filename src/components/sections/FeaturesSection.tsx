@@ -9,17 +9,17 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.08,
     },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
+    transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
   },
 }
 

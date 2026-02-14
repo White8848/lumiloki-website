@@ -16,10 +16,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.04) 0%, transparent 70%);
+  background: var(--color-bg-subtle);
   border-radius: var(--radius-lg);
   padding: var(--space-16);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
 }
 
 .productImg {
@@ -27,7 +27,7 @@
   max-width: 360px;
   height: auto;
   object-fit: contain;
-  animation: heroFloat3D 6s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
 .productEmoji {
@@ -52,7 +52,7 @@
 
 .name {
   font-size: var(--text-4xl);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .description {
@@ -65,10 +65,7 @@
   font-family: var(--font-display);
   font-size: var(--text-3xl);
   font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
 }
 
 .specsSection {
@@ -85,7 +82,7 @@
   background: var(--color-bg-card);
   border-radius: var(--radius-md);
   padding: var(--space-5);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
 }
 
 .specLabel {
@@ -156,7 +153,7 @@
 }
 
 .backLink:hover {
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 @media (max-width: 1023px) {

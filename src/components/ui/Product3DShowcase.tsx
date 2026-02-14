@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useEffect } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import OptimizedImage from './OptimizedImage'
 import styles from './Product3DShowcase.module.css'
 
@@ -34,22 +34,6 @@ export default function Product3DShowcase({ image, alt, emoji }: Product3DShowca
 
   const handlePointerUp = useCallback(() => {
     isDragging.current = false
-  }, [])
-
-  // Auto-rotation when not dragging
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) return
-
-    let rafId: number
-    const autoRotate = () => {
-      if (!isDragging.current) {
-        setRotation(prev => ({ ...prev, y: prev.y + 0.2 }))
-      }
-      rafId = requestAnimationFrame(autoRotate)
-    }
-    rafId = requestAnimationFrame(autoRotate)
-    return () => cancelAnimationFrame(rafId)
   }, [])
 
   return (

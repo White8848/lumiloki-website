@@ -18,21 +18,18 @@ const brandValues = [
     icon: '💡',
     title: '创新',
     description: '不断突破技术边界，将前沿科技融入日常玩具，重新定义魔方的可能性。',
-    color: 'var(--color-primary)',
     image: valueInnovationImg,
   },
   {
     icon: '🤗',
     title: '包容',
     description: '魔方属于每一个人。无论年龄、水平，Lumiloki 都让你找到属于自己的乐趣。',
-    color: 'var(--color-secondary)',
     image: valueInclusionImg,
   },
   {
     icon: '🎉',
     title: '乐趣',
     description: '产品设计始终以乐趣为核心，让科技不再冰冷，让每一次旋转都充满惊喜。',
-    color: 'var(--color-accent)',
     image: valueFunImg,
   },
 ]
@@ -112,7 +109,7 @@ export default function BrandStoryPage() {
                     />
                   </div>
                   <div className={styles.valueIcon}>{value.icon}</div>
-                  <h3 className={styles.valueTitle} style={{ color: value.color }}>
+                  <h3 className={styles.valueTitle}>
                     {value.title}
                   </h3>
                   <p className={styles.valueDesc}>{value.description}</p>

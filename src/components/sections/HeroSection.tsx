@@ -1,35 +1,20 @@
 import { motion } from 'motion/react'
 import GlowButton from '../ui/GlowButton'
 import OptimizedImage from '../ui/OptimizedImage'
-import ParticleField from '../effects/ParticleField'
 import TypewriterText from '../effects/TypewriterText'
-import { useScrollPosition } from '../../hooks/useScrollPosition'
 import heroProduct from '../../assets/images/products/lumi-pro.webp'
-import heroBg from '../../assets/images/backgrounds/hero-bg.webp'
 import styles from './HeroSection.module.css'
 
 export default function HeroSection() {
-  const { scrollY } = useScrollPosition()
-
   return (
     <section className={styles.hero}>
-      <div className={styles.heroBg}>
-        <img src={heroBg} alt="" className={styles.heroBgImg} />
-      </div>
-      <div className={styles.noiseOverlay} />
-      <ParticleField particleCount={60} />
-
       <div className={styles.content}>
         <motion.div
           className={styles.productImage}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          style={{
-            transform: `translateY(${scrollY * -0.15}px)`,
-          }}
         >
-          <div className={styles.cubeGlow} />
           <OptimizedImage
             src={heroProduct}
             alt="Lumi Pro"

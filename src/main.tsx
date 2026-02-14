@@ -2,8 +2,6 @@ import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
-import CubeSpinner from './components/ui/CubeSpinner'
-import GradientText from './components/effects/GradientText'
 
 import './styles/fonts.css'
 import './styles/variables.css'
@@ -30,10 +28,15 @@ function Loading() {
       background: 'var(--color-bg)',
       gap: '1.5rem',
     }}>
-      <CubeSpinner size="large" />
-      <GradientText as="span" className="loading-brand-text">
+      <span style={{
+        fontFamily: "'Sora', sans-serif",
+        fontSize: '1.5rem',
+        fontWeight: 700,
+        letterSpacing: '6px',
+        color: 'var(--color-text)',
+      }}>
         LUMILOKI
-      </GradientText>
+      </span>
     </div>
   )
 }

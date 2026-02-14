@@ -6,8 +6,7 @@
   justify-content: center;
   text-align: center;
   padding: var(--space-8);
-  background: radial-gradient(ellipse at 50% 50%, rgba(167, 139, 250, 0.06) 0%, transparent 60%),
-    #FFFFFF;
+  background: #FFFFFF;
 }
 
 .cubeWrapper {
@@ -33,7 +32,7 @@
   position: absolute;
   width: 120px;
   height: 120px;
-  border: 2px solid rgba(255, 107, 107, 0.25);
+  border: 2px solid rgba(232, 85, 61, 0.2);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -41,37 +40,37 @@
   font-size: 24px;
   font-family: var(--font-display);
   font-weight: 800;
-  color: rgba(255, 107, 107, 0.5);
+  color: rgba(232, 85, 61, 0.4);
   backdrop-filter: blur(4px);
 }
 
 .faceFront {
-  background: rgba(255, 107, 107, 0.06);
+  background: rgba(232, 85, 61, 0.04);
   transform: translateZ(60px);
 }
 
 .faceBack {
-  background: rgba(167, 139, 250, 0.06);
+  background: rgba(232, 85, 61, 0.03);
   transform: rotateY(180deg) translateZ(60px);
 }
 
 .faceRight {
-  background: rgba(78, 205, 196, 0.06);
+  background: rgba(232, 85, 61, 0.03);
   transform: rotateY(90deg) translateZ(60px);
 }
 
 .faceLeft {
-  background: rgba(255, 230, 109, 0.06);
+  background: rgba(232, 85, 61, 0.03);
   transform: rotateY(-90deg) translateZ(60px);
 }
 
 .faceTop {
-  background: rgba(96, 165, 250, 0.04);
+  background: rgba(232, 85, 61, 0.02);
   transform: rotateX(90deg) translateZ(60px);
 }
 
 .faceBottom {
-  background: rgba(167, 139, 250, 0.04);
+  background: rgba(232, 85, 61, 0.02);
   transform: rotateX(-90deg) translateZ(60px);
 }
 
@@ -96,16 +95,10 @@
 .code {
   font-family: var(--font-display);
   font-size: 6rem;
-  font-weight: 900;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 800;
+  color: var(--color-primary);
   line-height: 1;
   margin-bottom: var(--space-4);
-  text-shadow: none;
-  animation: glowPulseText 3s ease-in-out infinite;
-  filter: drop-shadow(0 4px 12px rgba(255, 107, 107, 0.2));
 }
 
 .message {
