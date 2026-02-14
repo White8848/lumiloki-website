@@ -1,50 +1,71 @@
-# React + TypeScript + Vite
+# Lumiloki Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Lumiloki 发光智能魔方品牌官网 — 基于 React + TypeScript + Vite 构建的纯静态 SPA。
 
-Currently, two official plugins are available:
+## 技术栈
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **框架**: React 18 + TypeScript 5.6
+- **构建**: Vite 5.4
+- **路由**: React Router DOM v7（HashRouter + 懒加载）
+- **动画**: motion@12 + CSS keyframes
+- **样式**: CSS Modules + CSS 变量
+- **字体**: Nunito + Noto Sans SC（Google Fonts）
+- **部署**: GitHub Pages（GitHub Actions 自动构建）
 
-## Expanding the ESLint configuration
+## 页面结构
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+| 路由 | 页面 |
+|------|------|
+| `/` | 首页（Hero + 特性 + 产品展示 + 品牌亮点 + CTA） |
+| `/products` | 产品中心 |
+| `/products/:id` | 产品详情 |
+| `/brand` | 品牌故事 |
+| `/news` | 新闻动态 |
+| `/news/:id` | 新闻详情 |
+| `/contact` | 联系我们 |
+| `/careers` | 加入我们 |
 
-- Configure the top-level `parserOptions` property like this:
+## 快速开始
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 生产构建
+npm run build
+
+# 预览构建产物
+npm run preview
+
+# 代码检查
+npm run lint
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 项目结构
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+src/
+├── components/
+│   ├── effects/      # 视觉特效组件
+│   ├── layout/       # 布局组件（Navbar, Footer）
+│   ├── sections/     # 首页区块组件
+│   └── ui/           # 通用 UI 组件
+├── pages/            # 页面组件
+├── data/             # 静态数据
+├── hooks/            # 自定义 Hooks
+├── types/            # TypeScript 类型定义
+├── styles/           # 全局样式与 CSS 变量
+├── assets/           # 图片资源（WebP）
+└── utils/            # 工具函数
+```
+
+## 部署
+
+推送到 `main` 分支后，GitHub Actions 自动执行构建并部署至 GitHub Pages。
+
+- 运行时: Node 20
+- 构建命令: `npm ci && npm run build`
+- 输出目录: `dist/`
