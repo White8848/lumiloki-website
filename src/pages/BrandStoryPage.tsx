@@ -2,7 +2,6 @@ import { motion } from 'motion/react'
 import SectionHeading from '../components/ui/SectionHeading'
 import GlowCard from '../components/ui/GlowCard'
 import ScrollReveal from '../components/ui/ScrollReveal'
-import GlowDivider from '../components/ui/GlowDivider'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import Timeline from '../components/sections/Timeline'
 import brandOriginImg from '../assets/images/brand/brand-origin.webp'
@@ -88,7 +87,6 @@ export default function BrandStoryPage() {
           </div>
         </ScrollReveal>
 
-        <GlowDivider />
 
         <div className={styles.values}>
           <SectionHeading
@@ -119,7 +117,6 @@ export default function BrandStoryPage() {
           </div>
         </div>
 
-        <GlowDivider />
 
         <div className={styles.timelineSection}>
           <div className={styles.timelineHeader}>

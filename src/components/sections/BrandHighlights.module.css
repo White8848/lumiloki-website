@@ -7,7 +7,7 @@
   grid-template-columns: 55% 1fr;
   gap: var(--space-12);
   align-items: center;
-  margin-bottom: var(--section-gap);
+  margin-bottom: var(--space-16);
   overflow: hidden;
 }
 

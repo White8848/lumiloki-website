@@ -3,7 +3,6 @@ import SectionHeading from '../components/ui/SectionHeading'
 import GlowCard from '../components/ui/GlowCard'
 import GlowButton from '../components/ui/GlowButton'
 import ScrollReveal from '../components/ui/ScrollReveal'
-import GlowDivider from '../components/ui/GlowDivider'
 import styles from './CareersPage.module.css'
 
 const benefits = [
@@ -120,8 +119,6 @@ export default function CareersPage() {
           </div>
         </div>
 
-        <GlowDivider />
-
         <div className={styles.section}>
           <SectionHeading
             label="在招职位"
@@ -156,8 +153,6 @@ export default function CareersPage() {
           </div>
         </div>
 
-        <GlowDivider />
-
         <div className={styles.section}>
           <SectionHeading
             label="招聘流程"
@@ -178,8 +173,6 @@ export default function CareersPage() {
             ))}
           </div>
         </div>
-
-        <GlowDivider />
 
         <ScrollReveal>
           <div className={styles.cta}>
