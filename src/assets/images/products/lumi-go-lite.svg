@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glow-cyan">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.06"/>
+      <stop offset="60%" stop-color="#00F0FF" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="board-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a3e" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0d0d2b" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <rect width="800" height="600" fill="url(#bg-glow)"/>
+  <!-- Floor reflection -->
+  <ellipse cx="400" cy="500" rx="200" ry="20" fill="#00F0FF" opacity="0.04"/>
+  <!-- Particles -->
+  <circle cx="130" cy="100" r="1.5" fill="#00F0FF" opacity="0.4"/>
+  <circle cx="670" cy="80" r="1" fill="#B24BF3" opacity="0.3"/>
+  <circle cx="100" cy="350" r="1" fill="#FF2D78" opacity="0.3"/>
+  <circle cx="700" cy="400" r="1.5" fill="#00F0FF" opacity="0.4"/>
+  <!-- Smaller 9x9 board - isometric -->
+  <polygon points="400,150 580,240 400,330 220,240" fill="url(#board-grad)" stroke="#00F0FF" stroke-width="2" filter="url(#glow-cyan)"/>
+  <!-- 9x9 grid (simplified: 4 lines each direction) -->
+  <g stroke="#00F0FF" stroke-width="0.5" opacity="0.3">
+    <line x1="265" y1="195" x2="535" y2="195"/>
+    <line x1="242" y1="218" x2="558" y2="218"/>
+    <line x1="242" y1="262" x2="558" y2="262"/>
+    <line x1="265" y1="285" x2="535" y2="285"/>
+    <line x1="310" y1="168" x2="310" y2="312"/>
+    <line x1="355" y1="158" x2="355" y2="322"/>
+    <line x1="445" y1="158" x2="445" y2="322"/>
+    <line x1="490" y1="168" x2="490" y2="312"/>
+  </g>
+  <!-- Center star point -->
+  <circle cx="400" cy="240" r="5" fill="#00F0FF" opacity="0.6"/>
+  <!-- A few stones -->
+  <circle cx="355" cy="218" r="12" fill="#1a1a3e" stroke="#00F0FF" stroke-width="1.5" filter="url(#glow-cyan)"/>
+  <circle cx="445" cy="240" r="12" fill="#2a2a4e" stroke="#FF2D78" stroke-width="1.5"/>
+  <circle cx="400" cy="195" r="12" fill="#1a1a3e" stroke="#B24BF3" stroke-width="1.5"/>
+  <circle cx="355" cy="262" r="12" fill="#2a2a4e" stroke="#00F0FF" stroke-width="1.5"/>
+  <!-- LED indicator on stones -->
+  <circle cx="355" cy="218" r="6" fill="#00F0FF" opacity="0.12"/>
+  <circle cx="445" cy="240" r="6" fill="#FF2D78" opacity="0.12"/>
+  <!-- Teaching mode indicator - book icon -->
+  <g transform="translate(370, 370)" filter="url(#glow-cyan)" opacity="0.6">
+    <rect x="0" y="0" width="25" height="30" rx="2" fill="none" stroke="#00F0FF" stroke-width="1.5"/>
+    <rect x="35" y="0" width="25" height="30" rx="2" fill="none" stroke="#00F0FF" stroke-width="1.5"/>
+    <path d="M25 5 L30 0 L35 5" fill="none" stroke="#00F0FF" stroke-width="1"/>
+    <path d="M25 30 L30 35 L35 30" fill="none" stroke="#00F0FF" stroke-width="1"/>
+  </g>
+  <!-- Corner highlights -->
+  <circle cx="400" cy="150" r="3" fill="#00F0FF" filter="url(#glow-strong)"/>
+  <circle cx="580" cy="240" r="3" fill="#00F0FF" filter="url(#glow-strong)"/>
+  <circle cx="220" cy="240" r="3" fill="#00F0FF" filter="url(#glow-strong)"/>
+  <circle cx="400" cy="330" r="3" fill="#00F0FF" filter="url(#glow-strong)"/>
+  <!-- Product text -->
+  <text x="400" y="480" text-anchor="middle" font-family="'Courier New', monospace" font-size="28" font-weight="bold" fill="#00F0FF" filter="url(#glow-cyan)" letter-spacing="10">LUMI GO LITE</text>
+  <text x="400" y="505" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#00F0FF" opacity="0.5" letter-spacing="6">STARTER EDITION</text>
+</svg>

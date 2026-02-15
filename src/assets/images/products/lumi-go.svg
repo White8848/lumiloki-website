@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="glow-cyan">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-strong">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feFlood flood-color="#00F0FF" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.08"/>
+      <stop offset="60%" stop-color="#00F0FF" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#0A0A1A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="board-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a3e" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0d0d2b" stop-opacity="0.98"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A1A"/>
+  <rect width="800" height="600" fill="url(#bg-glow)"/>
+  <!-- Floor reflection -->
+  <ellipse cx="400" cy="520" rx="250" ry="25" fill="#00F0FF" opacity="0.05"/>
+  <!-- Floating particles -->
+  <circle cx="120" cy="90" r="1.5" fill="#00F0FF" opacity="0.5"/>
+  <circle cx="680" cy="70" r="2" fill="#B24BF3" opacity="0.4"/>
+  <circle cx="180" cy="420" r="1" fill="#00F0FF" opacity="0.3"/>
+  <circle cx="620" cy="480" r="1.5" fill="#FF2D78" opacity="0.3"/>
+  <circle cx="700" cy="320" r="1" fill="#00F0FF" opacity="0.4"/>
+  <circle cx="80" cy="280" r="1.5" fill="#B24BF3" opacity="0.3"/>
+  <!-- Go board - isometric perspective -->
+  <polygon points="400,120 650,260 400,400 150,260" fill="url(#board-grad)" stroke="#00F0FF" stroke-width="2" filter="url(#glow-cyan)"/>
+  <!-- 19x19 grid lines (simplified: show 5 representative lines each direction) -->
+  <g stroke="#00F0FF" stroke-width="0.5" opacity="0.35">
+    <!-- Horizontal grid -->
+    <line x1="213" y1="190" x2="588" y2="190"/>
+    <line x1="181" y1="225" x2="619" y2="225"/>
+    <line x1="150" y1="260" x2="650" y2="260"/>
+    <line x1="181" y1="295" x2="619" y2="295"/>
+    <line x1="213" y1="330" x2="588" y2="330"/>
+    <!-- Vertical grid -->
+    <line x1="275" y1="155" x2="275" y2="365"/>
+    <line x1="338" y1="137" x2="338" y2="383"/>
+    <line x1="400" y1="120" x2="400" y2="400"/>
+    <line x1="463" y1="137" x2="463" y2="383"/>
+    <line x1="525" y1="155" x2="525" y2="365"/>
+  </g>
+  <!-- Star points (hoshi) -->
+  <circle cx="338" cy="225" r="4" fill="#00F0FF" opacity="0.6"/>
+  <circle cx="463" cy="225" r="4" fill="#00F0FF" opacity="0.6"/>
+  <circle cx="400" cy="260" r="5" fill="#00F0FF" opacity="0.7"/>
+  <circle cx="338" cy="295" r="4" fill="#00F0FF" opacity="0.6"/>
+  <circle cx="463" cy="295" r="4" fill="#00F0FF" opacity="0.6"/>
+  <!-- Go stones - black stones with glow -->
+  <circle cx="338" cy="225" r="14" fill="#1a1a3e" stroke="#00F0FF" stroke-width="1.5" filter="url(#glow-cyan)"/>
+  <circle cx="400" cy="190" r="14" fill="#1a1a3e" stroke="#00F0FF" stroke-width="1.5" filter="url(#glow-cyan)"/>
+  <circle cx="463" cy="260" r="14" fill="#1a1a3e" stroke="#B24BF3" stroke-width="1.5"/>
+  <circle cx="525" cy="225" r="14" fill="#1a1a3e" stroke="#B24BF3" stroke-width="1.5"/>
+  <!-- Go stones - white stones with glow -->
+  <circle cx="400" cy="260" r="14" fill="#2a2a4e" stroke="#FF2D78" stroke-width="1.5"/>
+  <circle cx="338" cy="295" r="14" fill="#2a2a4e" stroke="#FF2D78" stroke-width="1.5"/>
+  <circle cx="463" cy="225" r="14" fill="#2a2a4e" stroke="#00F0FF" stroke-width="1.5" filter="url(#glow-cyan)"/>
+  <!-- LED glow on active stone -->
+  <circle cx="338" cy="225" r="8" fill="#00F0FF" opacity="0.15"/>
+  <circle cx="400" cy="260" r="8" fill="#FF2D78" opacity="0.15"/>
+  <!-- Corner highlights -->
+  <circle cx="400" cy="120" r="3" fill="#00F0FF" filter="url(#glow-strong)"/>
+  <circle cx="650" cy="260" r="3" fill="#00F0FF" filter="url(#glow-strong)"/>
+  <circle cx="150" cy="260" r="3" fill="#00F0FF" filter="url(#glow-strong)"/>
+  <circle cx="400" cy="400" r="3" fill="#00F0FF" filter="url(#glow-strong)"/>
+  <!-- AI indicator -->
+  <circle cx="400" cy="445" r="20" fill="none" stroke="#00F0FF" stroke-width="1" opacity="0.4"/>
+  <circle cx="400" cy="445" r="12" fill="none" stroke="#B24BF3" stroke-width="1" opacity="0.5"/>
+  <circle cx="400" cy="445" r="4" fill="#00F0FF" opacity="0.6"/>
+  <!-- Product text -->
+  <text x="400" y="510" text-anchor="middle" font-family="'Courier New', monospace" font-size="28" font-weight="bold" fill="#00F0FF" filter="url(#glow-cyan)" letter-spacing="12">LUMI GO</text>
+  <text x="400" y="535" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#00F0FF" opacity="0.5" letter-spacing="6">SMART GO BOARD</text>
+</svg>
