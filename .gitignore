@@ -23,3 +23,6 @@ screenshots
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code task log (local working state)
+.claude/task-log/
