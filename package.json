@@ -10,7 +10,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "preview": "vite preview",
-    "clean": "bash scripts/cleanup.sh"
+    "screenshot": "node scripts/screenshot.mjs",
+    "screenshot:mobile": "node scripts/screenshot.mjs --mobile",
+    "screenshot:all": "node scripts/screenshot.mjs && node scripts/screenshot.mjs --mobile",
+    "clean": "node scripts/cleanup.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
