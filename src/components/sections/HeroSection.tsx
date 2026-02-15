@@ -64,11 +64,6 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <div className={styles.scrollIndicator}>
-        <div className={styles.mouse}>
-          <div className={styles.mouseWheel} />
-        </div>
-      </div>
     </section>
   )
 }

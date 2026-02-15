@@ -70,12 +70,3 @@
   width: 100%;
 }
 
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.4);
-  animation: ripple 0.6s ease-out;
-  pointer-events: none;
-}
