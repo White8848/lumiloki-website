@@ -17,7 +17,7 @@ export const features: Feature[] = [
   },
   {
     title: '炫彩光效',
-    description: '全面LED矩阵覆盖，支持1600万色自定义灯效，让你的魔方成为全场焦点。',
+    description: '全面LED矩阵覆盖，支持1600万色自定义灯效，让每一款产品成为全场焦点。',
     bgImage: ledBg,
   },
   {

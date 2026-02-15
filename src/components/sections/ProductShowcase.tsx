@@ -7,7 +7,7 @@ import { products } from '../../data/products'
 import styles from './ProductShowcase.module.css'
 
 export default function ProductShowcase() {
-  const showcaseProducts = products.filter(p => p.featured || ['lumi-lite', 'lumi-speed'].includes(p.id)).slice(0, 3)
+  const showcaseProducts = products.filter(p => p.featured || ['lumi-lite', 'lumi-speed'].includes(p.id)).slice(0, 4)
 
   return (
     <section className={styles.section}>

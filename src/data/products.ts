@@ -6,6 +6,9 @@ import lumiSpeedImg from '../assets/images/products/lumi-speed.webp'
 import lumiMiniImg from '../assets/images/products/lumi-mini.webp'
 import lumiXImg from '../assets/images/products/lumi-x.webp'
 import lumiNeoImg from '../assets/images/products/lumi-neo.webp'
+import lumiGoImg from '../assets/images/products/lumi-go.webp'
+import lumiGoLiteImg from '../assets/images/products/lumi-go-lite.webp'
+import lumiChessImg from '../assets/images/products/lumi-chess.webp'
 
 export const products: Product[] = [
   {
@@ -237,6 +240,121 @@ export const products: Product[] = [
       },
     ],
   },
+  {
+    id: 'lumi-go',
+    name: 'Lumi Go 智能围棋',
+    series: '智能棋类',
+    description: '19×19路全彩LED棋盘，内置AI对弈引擎（业余5段），落子识别 + Wi-Fi 6连接。',
+    longDescription:
+      'Lumi Go 是 Lumiloki 进军智能棋盘领域的首款力作。19×19路标准围棋棋盘上，每个交叉点都嵌入了独立RGB LED，实现实时落子提示、复盘回放和AI教学可视化。内置围棋AI引擎达到业余5段水平，支持让子对弈和实时形势判断。搭配Wi-Fi 6模块，可在线对弈、观战和接入云端棋谱库。',
+    price: '¥1,299',
+    emoji: '⚫',
+    image: lumiGoImg,
+    featured: true,
+    specs: [
+      { label: '棋盘', value: '19×19路标准围棋' },
+      { label: '处理器', value: 'ARM Cortex-A53 四核 @ 1.5GHz' },
+      { label: 'LED', value: '全彩RGB LED x361' },
+      { label: 'AI引擎', value: '业余5段（可升级）' },
+      { label: '连接', value: 'Wi-Fi 6 + BLE 5.0' },
+      { label: '落子识别', value: '电容感应矩阵' },
+      { label: '电池', value: '5000mAh 锂电池' },
+      { label: '续航', value: '8小时+' },
+    ],
+    features: [
+      {
+        title: 'AI 智能对弈',
+        description: '内置围棋AI引擎，业余5段水平，支持让子对弈、形势判断和最佳落点提示。通过OTA持续升级棋力。',
+        emoji: '🤖',
+      },
+      {
+        title: '全彩落子引导',
+        description: '361个交叉点独立LED，实时显示落子提示、气的状态和领地分析，让棋局一目了然。',
+        emoji: '💡',
+      },
+      {
+        title: '云端棋谱库',
+        description: 'Wi-Fi 6连接云端，访问海量职业棋谱，支持在线对弈和AI复盘分析。',
+        emoji: '☁️',
+      },
+    ],
+  },
+  {
+    id: 'lumi-go-lite',
+    name: 'Lumi Go Lite 围棋入门版',
+    series: '智能棋类',
+    description: '9/13路可切换棋盘，入门教学模式，BLE连接，围棋新手的最佳伙伴。',
+    longDescription:
+      'Lumi Go Lite 专为围棋初学者设计。支持9路和13路棋盘自由切换，内置从零开始的围棋教学课程，通过LED灯效逐步引导基本规则、吃子技巧和简单定式。BLE蓝牙连接APP后可解锁更多教学内容和AI陪练功能。',
+    price: '¥699',
+    emoji: '🔵',
+    image: lumiGoLiteImg,
+    specs: [
+      { label: '棋盘', value: '9路/13路可切换' },
+      { label: '处理器', value: 'ARM Cortex-M4 @ 120MHz' },
+      { label: 'LED', value: 'RGB LED x169（13路满配）' },
+      { label: 'AI引擎', value: '入门级（约业余1段）' },
+      { label: '连接', value: 'BLE 5.0' },
+      { label: '落子识别', value: '磁感应' },
+      { label: '电池', value: '3000mAh 锂电池' },
+      { label: '续航', value: '12小时+' },
+    ],
+    features: [
+      {
+        title: '入门教学模式',
+        description: '从规则讲解到实战演练，内置完整围棋入门课程，LED灯效逐步引导每一个知识点。',
+        emoji: '📚',
+      },
+      {
+        title: '9/13路切换',
+        description: '小棋盘降低入门难度，随着水平提升切换到13路，循序渐进。',
+        emoji: '🔄',
+      },
+      {
+        title: 'AI陪练',
+        description: '入门级AI引擎，智能调整难度匹配你的水平，每一局都有收获。',
+        emoji: '🎯',
+      },
+    ],
+  },
+  {
+    id: 'lumi-chess',
+    name: 'Lumi Chess 智能国际象棋',
+    series: '智能棋类',
+    description: '64格全彩LED棋盘，棋子磁感应识别，AI对弈 + 在线对战。',
+    longDescription:
+      'Lumi Chess 将经典国际象棋带入智能时代。64格全彩LED棋盘配合磁感应棋子识别技术，自动追踪每一步棋的移动。内置AI引擎提供多难度级别对弈，从入门到大师级别。LED灯效实时显示可走位置、威胁提示和战术建议。',
+    price: '¥899',
+    emoji: '♟️',
+    image: lumiChessImg,
+    specs: [
+      { label: '棋盘', value: '8×8 标准国际象棋' },
+      { label: '处理器', value: 'ARM Cortex-A53 双核 @ 1.2GHz' },
+      { label: 'LED', value: '全彩RGB LED x64' },
+      { label: 'AI引擎', value: '多级难度（ELO 800-2200）' },
+      { label: '连接', value: 'Wi-Fi 5 + BLE 5.0' },
+      { label: '棋子识别', value: '磁感应（含棋子套装）' },
+      { label: '电池', value: '4000mAh 锂电池' },
+      { label: '续航', value: '10小时+' },
+    ],
+    features: [
+      {
+        title: '棋子磁感应',
+        description: '每颗棋子内置磁铁标识，棋盘自动识别棋子类型和位置，无需手动输入。',
+        emoji: '🧲',
+      },
+      {
+        title: '走位引导',
+        description: 'LED实时显示所选棋子的所有合法走位，新手也能快速上手。威胁位置红色警示。',
+        emoji: '🗺️',
+      },
+      {
+        title: '多级AI对弈',
+        description: 'ELO 800到2200多个难度级别，从休闲娱乐到严肃训练，总有适合你的对手。',
+        emoji: '🏅',
+      },
+    ],
+  },
 ]
 
-export const seriesOptions = ['全部', '经典系列', '竞速系列', '限定版'] as const
+export const seriesOptions = ['全部', '经典系列', '竞速系列', '限定版', '智能棋类'] as const

@@ -1,0 +1,26 @@
+{
+  "name": "LUMILOKI - 智能发光潮玩",
+  "short_name": "LUMILOKI",
+  "description": "从智能魔方到智能棋盘，融合前沿科技与潮流设计的智能发光潮玩品牌。",
+  "start_url": "/lumiloki-website/",
+  "display": "standalone",
+  "background_color": "#0A0A1A",
+  "theme_color": "#FAFAFA",
+  "icons": [
+    {
+      "src": "/lumiloki-website/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/lumiloki-website/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/lumiloki-website/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

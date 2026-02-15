@@ -1,4 +1,4 @@
-export type NewsCategory = '产品发布' | '品牌活动' | '技术分享'
+export type NewsCategory = '产品发布' | '品牌活动' | '技术分享' | '赛事报道'
 
 export interface NewsArticle {
   id: string

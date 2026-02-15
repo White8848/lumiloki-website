@@ -5,6 +5,10 @@ import newsCompetitionImg from '../assets/images/news/news-competition.webp'
 import newsTechImg from '../assets/images/news/news-tech.webp'
 import newsCollabImg from '../assets/images/news/news-collab.webp'
 import newsAppImg from '../assets/images/news/news-app.webp'
+import newsGoLaunchImg from '../assets/images/news/news-go-launch.webp'
+import newsGoAiImg from '../assets/images/news/news-go-ai.webp'
+import newsGoCupImg from '../assets/images/news/news-go-cup.webp'
+import newsBrand2025Img from '../assets/images/news/news-brand-2025.webp'
 
 export const newsArticles: NewsArticle[] = [
   {
@@ -101,6 +105,107 @@ Lumi Neo 联名版将融合 URBAN CUBE 标志性的涂鸦艺术风格和 Lumilok
     emoji: '📱',
     image: newsAppImg,
   },
+  {
+    id: 'lumi-go-launch',
+    title: 'Lumiloki 进军智能棋盘：Lumi Go 发布',
+    summary:
+      '从魔方到棋盘，Lumiloki 正式发布首款智能围棋产品 Lumi Go，19×19路LED棋盘搭载AI对弈引擎，开启智能棋类新篇章。',
+    content: `Lumiloki 今天正式宣布进军智能棋盘领域，发布首款智能围棋产品 Lumi Go！
+
+这是 Lumiloki 品牌发展史上的重要里程碑。从2021年创立至今，我们一直在用科技重新定义传统玩具的体验。继智能发光魔方获得全球玩家认可后，我们将目光投向了拥有数千年历史的围棋。
+
+Lumi Go 搭载 19×19路标准围棋棋盘，每个交叉点都嵌入了独立RGB LED。内置的围棋AI引擎达到业余5段水平，支持让子对弈和实时形势判断。Wi-Fi 6模块让你随时接入云端棋谱库和在线对弈平台。
+
+电容感应矩阵技术实现了精准的落子识别，无需特殊棋子，普通围棋子即可使用。5000mAh大容量电池确保了8小时以上的续航。
+
+同步发布的还有入门版 Lumi Go Lite（9/13路可切换）和智能国际象棋 Lumi Chess，三款产品共同组成 Lumiloki 智能棋类产品线。
+
+Lumi Go 首发价 ¥1,299，即日起接受预订。`,
+    category: '产品发布',
+    date: '2025-09-15',
+    emoji: '⚫',
+    image: newsGoLaunchImg,
+    featured: true,
+  },
+  {
+    id: 'go-ai-engine',
+    title: '牵手围棋AI实验室：Lumi Go 引擎技术揭秘',
+    summary:
+      'Lumiloki 与顶尖围棋AI研究团队合作，为 Lumi Go 打造了高效能的端侧围棋引擎，本文深入揭秘其背后的技术架构。',
+    content: `今天我们来深入聊聊 Lumi Go 背后的围棋AI引擎技术。
+
+为了在有限的嵌入式算力上实现高水平的围棋AI，Lumiloki 与国内顶尖的围棋AI研究团队展开了深度合作。经过半年多的联合攻关，我们成功将原本需要高性能GPU运行的围棋神经网络，压缩到可以在 ARM Cortex-A53 芯片上流畅运行。
+
+核心技术突破包括：
+
+1. 模型量化与剪枝：将原始模型体积压缩了95%，推理速度提升8倍，同时棋力损失控制在0.5段以内。
+
+2. 动态搜索深度：根据棋局复杂度自动调整蒙特卡洛树搜索的深度，在关键局面投入更多算力。
+
+3. 端云协同：日常对弈使用端侧引擎（业余5段），联网时可调用云端更强的引擎进行深度分析。
+
+4. 增量学习：AI引擎会根据用户的对弈记录逐步调整策略，让陪练体验更加个性化。
+
+目前 Lumi Go 的端侧引擎在标准测试中稳定达到业余5段水平，在部分局面下甚至可以挑战业余6段。后续我们会通过OTA持续优化引擎性能。`,
+    category: '技术分享',
+    date: '2025-10-20',
+    emoji: '🧠',
+    image: newsGoAiImg,
+  },
+  {
+    id: 'lumi-go-cup-2025',
+    title: '首届 Lumi Go Cup 线上围棋赛开启报名',
+    summary:
+      '首届 Lumi Go Cup 线上围棋赛正式开启报名，面向所有 Lumi Go 用户，设置入门组和进阶组，总奖池超5万元。',
+    content: `首届 Lumi Go Cup 线上围棋赛正式开启报名！
+
+继 Lumiloki Speed Cup 魔方赛事的成功举办后，我们很高兴地宣布，专为 Lumi Go 用户打造的线上围棋赛事——Lumi Go Cup 正式启动。
+
+赛事详情：
+- 报名时间：2025年11月10日 - 11月30日
+- 比赛时间：2025年12月6日 - 12月22日（周末进行）
+- 参赛要求：拥有 Lumi Go 或 Lumi Go Lite 设备
+- 分组设置：入门组（9路/13路）、进阶组（19路）
+- 赛制：瑞士制积分赛 + 淘汰赛
+- 总奖池：超过5万元（实物奖品 + 现金奖励）
+
+所有比赛将通过 Lumi Go 设备进行，AI裁判系统自动记录棋谱并判定胜负，确保比赛公平公正。观众可以通过 Lumiloki APP 实时观战，体验AI解说功能。
+
+入门组特别为围棋新手设计，使用9路或13路小棋盘，鼓励更多人迈出围棋竞技的第一步。
+
+扫描APP内赛事页面即可报名。让我们在棋盘上一决高下！`,
+    category: '赛事报道',
+    date: '2025-11-10',
+    emoji: '🏆',
+    image: newsGoCupImg,
+  },
+  {
+    id: 'brand-review-2025',
+    title: 'Lumiloki 2025 年度回顾：从魔方到棋盘',
+    summary:
+      '回顾 Lumiloki 2025年的品牌发展历程——从智能魔方领军品牌到智能潮玩生态的全面进化。',
+    content: `2025年即将过去，让我们一起回顾 Lumiloki 这一年的精彩历程。
+
+品类拓展：从魔方到棋盘
+2025年最大的里程碑，无疑是我们正式进军智能棋盘领域。9月发布的 Lumi Go 智能围棋、Lumi Go Lite 围棋入门版和 Lumi Chess 智能国际象棋，标志着 Lumiloki 从"智能魔方品牌"进化为"智能潮玩品牌"。
+
+技术突破：端侧AI引擎
+与顶尖围棋AI团队的合作让我们在嵌入式AI领域取得了重大突破。Lumi Go 的端侧围棋引擎在业内首次实现了在低功耗芯片上运行业余5段水平的AI，这项技术也将应用到未来更多产品中。
+
+社区增长：用户突破50万
+截至12月，Lumiloki 全球注册用户突破50万，覆盖45个国家和地区。Lumiloki Speed Cup 和首届 Lumi Go Cup 共吸引了超过5000名选手参赛。
+
+产品矩阵：9款在售产品
+从入门级 Lumi Lite 到旗舰级 Lumi Go，从经典魔方到智能棋盘，Lumiloki 已经构建起覆盖多品类、多价位的完整产品矩阵。
+
+展望2026年，我们将继续拓展智能棋盘品类，探索更多智能玩具形态，目标是让每一个家庭都能感受到 Lumiloki 带来的科技乐趣。
+
+感谢每一位用户的支持与陪伴。未来，一起发光！`,
+    category: '品牌活动',
+    date: '2025-12-25',
+    emoji: '🎄',
+    image: newsBrand2025Img,
+  },
 ]
 
-export const newsCategories = ['全部', '产品发布', '品牌活动', '技术分享'] as const
+export const newsCategories = ['全部', '产品发布', '品牌活动', '技术分享', '赛事报道'] as const

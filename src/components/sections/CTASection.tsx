@@ -14,7 +14,7 @@ export default function CTASection() {
         <ScrollReveal>
           <h2 className={styles.title}>准备好点亮了吗？</h2>
           <p className={styles.subtitle}>
-            加入 Lumiloki 社区，和全球玩家一起探索发光魔方的无限可能
+            加入 Lumiloki 社区，和全球玩家一起探索智能发光潮玩的无限可能
           </p>
           <GlowButton to="/products" size="large">
             立即探索

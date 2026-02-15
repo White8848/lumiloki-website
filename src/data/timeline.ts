@@ -29,4 +29,16 @@ export const timeline: TimelineItem[] = [
     description:
       '产品销往全球30+国家和地区，与多个国际潮流品牌达成联名合作，Lumiloki 成为智能魔方领域的标杆品牌。',
   },
+  {
+    year: '2025',
+    title: '品类拓展',
+    description:
+      '推出智能围棋 Lumi Go 和智能国际象棋 Lumi Chess，从魔方到棋盘，正式进化为智能潮玩品牌。',
+  },
+  {
+    year: '2026',
+    title: '生态构建',
+    description:
+      '智能棋盘全品类覆盖，全球用户突破百万，构建以"光"为核心的智能玩具生态。',
+  },
 ]

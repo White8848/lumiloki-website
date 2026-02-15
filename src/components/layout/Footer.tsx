@@ -19,8 +19,8 @@ export default function Footer() {
           <div className={styles.brand}>
             <h3>LUMILOKI</h3>
             <p>
-              点亮你的每一次旋转。Lumiloki
-              将前沿科技与潮流设计融合，重新定义魔方体验。
+              点亮你的每一步。Lumiloki
+              将前沿科技与潮流设计融合，重新定义智能潮玩体验。
             </p>
           </div>
 
@@ -31,6 +31,7 @@ export default function Footer() {
               <li><Link to="/products">经典系列</Link></li>
               <li><Link to="/products">竞速系列</Link></li>
               <li><Link to="/products">限定版</Link></li>
+              <li><Link to="/products">智能棋类</Link></li>
             </ul>
           </div>
 

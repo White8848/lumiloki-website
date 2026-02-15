@@ -12,7 +12,7 @@ export interface ProductFeature {
 export interface Product {
   id: string
   name: string
-  series: '经典系列' | '竞速系列' | '限定版'
+  series: '经典系列' | '竞速系列' | '限定版' | '智能棋类'
   description: string
   longDescription: string
   price: string
