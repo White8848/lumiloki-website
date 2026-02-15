@@ -67,7 +67,7 @@
 
 /* Hover effects */
 .featureCard:hover .imageWrapper {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .featureCard:hover .overlay {
@@ -76,7 +76,7 @@
 
 .featureCard:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   transition: transform var(--transition-slow), box-shadow var(--transition-slow);
 }
 

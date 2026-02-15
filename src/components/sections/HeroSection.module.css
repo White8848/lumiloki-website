@@ -40,14 +40,14 @@
   font-weight: 800;
   letter-spacing: 8px;
   color: var(--color-text);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
   line-height: 1.1;
 }
 
 .subtitle {
   font-size: var(--text-xl);
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-12);
   font-weight: 300;
   letter-spacing: 2px;
   min-height: 1.5em;
