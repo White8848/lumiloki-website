@@ -218,6 +218,34 @@ async function takeScreenshots() {
       // 等待懒加载组件和动画渲染
       await page.waitForTimeout(1000)
 
+      // 全页截图：滚动触发动画 + 修正 fixed 元素重复渲染问题
+      if (config.fullPage) {
+        // 1. 滚动页面触发所有 whileInView / IntersectionObserver 动画
+        await page.evaluate(async () => {
+          const scrollHeight = document.documentElement.scrollHeight
+          const viewportHeight = window.innerHeight
+          for (let y = 0; y < scrollHeight; y += viewportHeight * 0.5) {
+            window.scrollTo(0, y)
+            await new Promise(r => setTimeout(r, 200))
+          }
+          window.scrollTo(0, scrollHeight)
+          await new Promise(r => setTimeout(r, 300))
+          window.scrollTo(0, 0)
+          await new Promise(r => setTimeout(r, 300))
+        })
+        // 2. 将导航栏 fixed→absolute，隐藏移动菜单和滚动进度条
+        await page.addStyleTag({
+          content: [
+            // navbar: fixed→absolute 保留在页面顶部
+            '[class*="navbar" i] { position: absolute !important; }',
+            // 隐藏移动端菜单、遮罩层、滚动进度条
+            '[class*="overlay" i], [class*="MobileMenu" i], [class*="mobileMenu" i],',
+            '[class*="ScrollProgress" i], [class*="scrollProgress" i]',
+            '{ display: none !important; }',
+          ].join('\n'),
+        })
+      }
+
       await page.screenshot({
         path: filepath,
         fullPage: config.fullPage,
