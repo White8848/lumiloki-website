@@ -43,7 +43,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.5 }}
         >
           <TypewriterText
-            text="点亮你的每一次旋转"
+            text="点亮你的每一步"
             speed={100}
             delay={800}
           />

@@ -28,7 +28,7 @@ export default function FeaturesSection() {
       <div className="container">
         <SectionHeading
           label="核心科技"
-          title="重新定义魔方体验"
+          title="重新定义智能玩具体验"
           subtitle="将前沿科技与极致手感融为一体，每一面都闪耀智慧之光"
         />
 
