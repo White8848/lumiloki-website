@@ -31,6 +31,7 @@ export default function Footer() {
               <li><Link to="/products">经典系列</Link></li>
               <li><Link to="/products">竞速系列</Link></li>
               <li><Link to="/products">限定版</Link></li>
+              <li><Link to="/products">智能棋类</Link></li>
             </ul>
           </div>
 

@@ -18,7 +18,10 @@ export default function ProductDetailPage() {
     return <Navigate to="/products" replace />
   }
 
-  const related = products.filter((p) => p.id !== product.id).slice(0, 3)
+  const others = products.filter((p) => p.id !== product.id)
+  const sameSeries = others.filter((p) => p.series === product.series)
+  const different = others.filter((p) => p.series !== product.series)
+  const related = [...sameSeries, ...different].slice(0, 3)
 
   return (
     <div className={cn('container', styles.page)}>
