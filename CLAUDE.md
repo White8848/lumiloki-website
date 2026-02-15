@@ -5,7 +5,7 @@ Lumiloki 发光智能魔方品牌官网，基于 React 18 + Vite 5 + TypeScript 
 
 ## 技术栈
 - **框架**: React 18.3 + TypeScript 5.6
-- **构建**: Vite 5.4，base 路径 `/lumiloki-website/`
+- **构建**: Vite 7.3，base 路径 `/`
 - **路由**: React Router DOM v7（HashRouter），所有页面组件通过 `React.lazy` 懒加载
 - **动画**: motion@12 + CSS keyframes（18+ 预定义动画）
 - **样式**: CSS Modules + CSS 变量（100+ 变量定义在 `variables.css`）
@@ -23,7 +23,7 @@ src/
 │   ├── layout/       # 布局组件（Navbar, Footer, MobileMenu）
 │   ├── sections/     # 首页区块（HeroSection, FeaturesSection, ProductShowcase, BrandHighlights, CTASection, Timeline）
 │   └── ui/           # 通用 UI（GlowButton, GlowCard, FlipCard, CubeSpinner, ProductCard, NewsCard, ScrollReveal, OptimizedImage 等 15+）
-├── pages/            # 页面组件（Home, Products, ProductDetail, BrandStory, News, NewsDetail, Contact, NotFound）
+├── pages/            # 页面组件（Home, Products, ProductDetail, BrandStory, News, NewsDetail, Contact, Careers, NotFound）
 ├── data/             # 静态数据（产品、新闻、常量）
 ├── hooks/            # 自定义 Hooks（useScrollProgress, useMediaQuery, useMagnetic, useTilt 等 5 个）
 ├── types/            # TypeScript 类型定义
@@ -31,6 +31,10 @@ src/
 ├── assets/           # 图片资源（WebP 格式）
 ├── test/             # 测试文件（setup、组件测试、路由测试）
 └── utils/            # 工具函数
+scripts/
+├── screenshot.mjs    # 跨平台 Playwright 截图脚本
+└── cleanup.mjs       # 跨平台清理脚本（截图、构建产物）
+screenshots/          # 截图输出目录（已 gitignore）
 ```
 
 ## 路由结构
@@ -41,6 +45,7 @@ src/
 - `/news` — 新闻动态列表
 - `/news/:id` — 新闻详情
 - `/contact` — 联系我们（表单）
+- `/careers` — 招贤纳士
 - `*` — 404 页面
 
 ## 开发规范
@@ -131,8 +136,8 @@ src/
    - **判断方法**：通过 `git diff --name-only` 检查已修改文件列表，匹配上述模式
    - **截图流程**：
      1. 确保开发服务器已启动（`npm run dev`）
-     2. 对受影响的页面截图（根据修改的组件/页面判断对应路由）
-     3. 用 Read 工具查看截图，确认视觉效果符合预期
+     2. 对受影响的页面截图：`node scripts/screenshot.mjs --route <name>`（根据修改的组件/页面判断对应路由名称）
+     3. 用 Read 工具查看 `screenshots/` 下的截图，确认视觉效果符合预期
      4. 如发现视觉问题，修复后重新截图验证
    - **不触发截图的改动**：纯逻辑修改、数据文件、工具函数、Hooks、类型定义、测试文件、配置文件等
 4. **自查** — 运行 `git diff` 审查改动，确认无调试代码（console.log）、注释掉的代码、无关改动
@@ -164,25 +169,48 @@ src/
   5. 确认最近一次构建状态（通过/失败），如不确定则重新运行验证
 
 ## 视觉截图调试流程
-通过 Playwright（headless Chromium）对本地开发页面自动截图，实现无 GUI 环境下的视觉调试。
+通过 Playwright（headless Chromium）对本地开发页面自动截图，实现无 GUI 环境下的视觉调试。截图脚本为跨平台 Node.js 实现（`scripts/screenshot.mjs`），支持 Windows 和 Linux/macOS。
 
 > **注意**：视觉截图已集成到迭代执行流程（第 2 节第 3 步），当修改涉及 UI 相关文件时会自动触发。以下为截图的具体操作方法和参数说明，也可在需要时手动执行。
 
+### 路由自动发现
+截图脚本从 `src/main.tsx` 自动解析路由列表，**新增静态页面无需修改脚本**。
+- **静态路由**（如 `products`、`brand`、`careers`）→ 自动发现，零维护
+- **动态路由**（含 `:param`，如 `products/:id`）→ 需在脚本的 `DYNAMIC_ROUTE_EXAMPLES` 中配置示例值
+- **端口自动探测** — 脚本会自动检测 dev server 运行的端口（5173-5180），无需手动指定
+- 运行 `node scripts/screenshot.mjs --help` 可查看当前自动发现的路由列表
+
 ### 截图操作步骤
 1. **启动开发服务器** — `npm run dev`（确保服务器在后台运行）
-2. **截图** — `mkdir -p /tmp/lumiloki-screenshots && npx playwright screenshot --browser chromium http://localhost:5173/lumiloki-website/ /tmp/lumiloki-screenshots/screenshot.png`
-3. **查看分析** — 用 Read 工具读取截图图片，分析页面渲染效果
+2. **截图** — 使用以下任一方式：
+   - `npm run screenshot` — 截取所有页面（桌面端 1280x720）
+   - `npm run screenshot:mobile` — 截取所有页面（移动端 375x812）
+   - `npm run screenshot:all` — 桌面端 + 移动端全部截取
+   - `node scripts/screenshot.mjs --route <name>` — 截取指定路由
+3. **查看分析** — 用 Read 工具读取 `screenshots/` 目录下的截图，分析页面渲染效果
 4. **修改验证** — 根据截图反馈修改代码，重新截图对比确认
 
 ### 截图参数说明
-- 全页截图（含滚动区域）：追加 `--full-page` 参数
-- 指定视口尺寸：`--viewport-size=1280,720`
-- 移动端模拟：`--viewport-size=375,812`
-- 子路由页面：调整 URL hash，如 `http://localhost:5173/lumiloki-website/#/products`
+- **指定路由**：`--route <name>`，可多次使用（如 `--route home --route products`）
+- **全页截图**（含滚动区域）：追加 `--full-page` 参数
+- **移动端视口**（375x812）：追加 `--mobile` 参数
+- **查看帮助**：`node scripts/screenshot.mjs --help`
+
+### 截图输出
+- 截图保存至项目根目录 `screenshots/` 下（已 gitignore）
+- 文件命名格式：`<路由名>-<设备>.png`，如 `home-desktop.png`、`products-mobile.png`
+- 全页截图后缀：`-full`，如 `home-desktop-full.png`
+
+### 新增页面时的截图维护
+- **新增静态路由**（如在 main.tsx 添加 `{ path: 'about', ... }`）→ 无需任何修改，自动生效
+- **新增动态路由**（如 `{ path: 'gallery/:slug', ... }`）→ 在 `scripts/screenshot.mjs` 的 `DYNAMIC_ROUTE_EXAMPLES` 中添加一条：
+  ```js
+  'gallery/:slug': { example: '/gallery/first-post', name: 'gallery-detail' },
+  ```
 
 ### 手动截图的使用时机
 以下场景即使未触发自动截图，也建议手动执行：
-- 响应式布局需要多尺寸验证（桌面端 + 移动端）
+- 响应式布局需要多尺寸验证（`npm run screenshot:all`）
 - 排查用户反馈的布局异常或样式错乱
 - 需要截取特定交互状态（如悬停、展开菜单等）
 
@@ -201,8 +229,10 @@ src/
 - `npm run test` — 运行单元测试（Vitest，单次运行）
 - `npm run test:watch` — 运行单元测试（Vitest，监听模式）
 - `npm run preview` — 预览生产构建
-- `npx playwright screenshot --browser chromium <url> /tmp/lumiloki-screenshots/<name>.png` — 页面截图（headless）
-- `npm run clean` — 清理临时文件（截图、构建产物、日志）
+- `npm run screenshot` — 截取所有页面（桌面端）
+- `npm run screenshot:mobile` — 截取所有页面（移动端）
+- `npm run screenshot:all` — 截取所有页面（桌面端 + 移动端）
+- `npm run clean` — 清理截图和构建产物
 
 ## 部署
 - GitHub Actions 自动部署（push to main → build → deploy to GitHub Pages）
