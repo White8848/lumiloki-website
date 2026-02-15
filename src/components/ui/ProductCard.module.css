@@ -3,14 +3,14 @@
   background: var(--color-bg-card);
   border-radius: var(--radius-md);
   overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
   text-decoration: none;
   display: block;
   border: 1px solid var(--color-border);
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .card:hover .productImage {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .imagePlaceholder {

@@ -4,10 +4,11 @@
   --color-accent: #2A9D8F;
 
   --color-bg-deep: #FFFFFF;
-  --color-bg: #FAFAFA;
+  --color-bg: #FAFBFC;
   --color-bg-card: #FFFFFF;
   --color-bg-card-hover: #F5F5F5;
-  --color-bg-subtle: #F5F5F5;
+  --color-bg-subtle: #F5F6F8;
+  --color-bg-warm: #FEFCFA;
 
   --color-text: #1D1D1F;
   --color-text-secondary: #6E6E73;
@@ -21,10 +22,10 @@
   --gradient-primary: linear-gradient(135deg, #E8553D, #D4442E);
 
   /* === Shadows === */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 30px rgba(0,0,0,0.10);
-  --shadow-color: 0 8px 30px rgba(232,85,61,0.15);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.02);
+  --shadow-md: 0 2px 4px rgba(0,0,0,0.03), 0 4px 8px rgba(0,0,0,0.03), 0 8px 16px rgba(0,0,0,0.03), 0 16px 24px rgba(0,0,0,0.02);
+  --shadow-lg: 0 4px 8px rgba(0,0,0,0.03), 0 8px 16px rgba(0,0,0,0.03), 0 16px 32px rgba(0,0,0,0.04), 0 32px 48px rgba(0,0,0,0.03);
+  --shadow-color: 0 4px 12px rgba(232,85,61,0.08), 0 8px 24px rgba(232,85,61,0.06), 0 16px 40px rgba(232,85,61,0.04);
 
   /* === Typography === */
   --font-display: 'Sora', sans-serif;
@@ -55,10 +56,11 @@
   --space-20: 5rem;
   --space-24: 6rem;
   --space-32: 8rem;
+  --space-40: 10rem;
 
-  --section-gap: var(--space-32);
+  --section-gap: var(--space-40);
   --container-max: 1200px;
-  --container-padding: var(--space-6);
+  --container-padding: var(--space-8);
 
   /* === Border Radius === */
   --radius-sm: 8px;
@@ -67,9 +69,9 @@
   --radius-full: 9999px;
 
   /* === Transitions === */
-  --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
-  --transition-slow: 400ms ease;
+  --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.1, 1);
 
   /* === Z-index === */
   --z-navbar: 100;
@@ -91,8 +93,8 @@
 
 @media (max-width: 640px) {
   :root {
-    --section-gap: var(--space-16);
-    --container-padding: var(--space-4);
+    --section-gap: var(--space-20);
+    --container-padding: var(--space-6);
 
     --text-hero: 3rem;
     --text-5xl: 2.25rem;
