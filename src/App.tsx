@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'motion/react'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import ScrollToTop from './components/ui/ScrollToTop'
-import ScrollProgressBar from './components/ui/ScrollProgressBar'
 
 export default function App() {
   const location = useLocation()
@@ -11,7 +10,6 @@ export default function App() {
   return (
     <div className="app">
       <ScrollToTop />
-      <ScrollProgressBar />
       <Navbar />
       <main>
         <AnimatePresence mode="wait">
