@@ -105,13 +105,19 @@ async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 // ===== 图片定义 =====
 
+// 统一后缀模板 — 确保所有产品图视觉一致
+const PRODUCT_SUFFIX = '，干净纯白背景，正方形构图，产品居中，四周留有充足空间，柔和的左上方摄影灯打光，产品底部有淡淡的接触阴影，无任何文字标签水印，3D写实渲染风格，高端科技产品质感，8K超高清';
+
 const PRODUCTS = [
-  { name: 'lumi-pro', prompt: '一个精致的智能发光魔方产品图，3x3魔方，魔方表面有彩色RGB LED灯珠在发出柔和的蓝紫色光芒，悬浮效果，干净纯白背景，正方形构图，产品居中，柔和的环境光和产品打光，高端科技产品摄影风格，8K超高清' },
-  { name: 'lumi-lite', prompt: '一个轻盈小巧的智能发光魔方产品图，3x3魔方，表面LED灯珠发出清新绿色光芒，轻量感设计，干净纯白背景，正方形构图，产品居中，现代极简产品摄影风格，8K超高清' },
-  { name: 'lumi-speed', prompt: '一个专业竞速智能魔方产品图，3x3魔方，表面有橙色LED灯光指示，充满动感和速度感的视觉效果，干净纯白背景，正方形构图，产品居中，运动感产品摄影，8K超高清' },
-  { name: 'lumi-mini', prompt: '一个迷你尺寸的可爱智能发光魔方产品图，非常小巧精致，表面LED灯发出紫色柔光，温馨可爱风格，干净纯白背景，正方形构图，产品居中，可爱产品摄影风格，8K超高清' },
-  { name: 'lumi-x', prompt: '一个三角金字塔形状的智能发光魔方（Pyraminx）产品图，三角形几何造型，表面有彩色LED灯光，独特造型科技感十足，干净纯白背景，正方形构图，产品居中，精致收藏级产品摄影，8K超高清' },
-  { name: 'lumi-neo', prompt: '一个潮流联名款智能发光魔方产品图，3x3魔方表面有街头涂鸦风格的彩色涂装和LED灯效，潮酷时尚设计，干净纯白背景，正方形构图，产品居中，潮流时尚产品摄影，8K超高清' },
+  { name: 'lumi-pro', prompt: '旗舰3x3智能魔方，白色磨砂机身搭配半透明面板，内置LED灯珠发出柔和蓝紫色光芒，魔方微微倾斜悬浮展示三个可见面' + PRODUCT_SUFFIX },
+  { name: 'lumi-lite', prompt: '轻盈3x3入门智能魔方，光滑白色机身，内置LED灯珠发出清新薄荷绿色光芒，整体造型轻巧友好' + PRODUCT_SUFFIX },
+  { name: 'lumi-speed', prompt: '竞速3x3智能魔方，拉丝金属银色机身精密切割线条，橙色LED指示灯亮起，充满专业运动感和速度感' + PRODUCT_SUFFIX },
+  { name: 'lumi-mini', prompt: '迷你4x4可爱智能魔方，约50mm超小巧尺寸，内置LED灯珠发出紫色柔光，萌系口袋尺寸造型' + PRODUCT_SUFFIX },
+  { name: 'lumi-x', prompt: '三角金字塔形智能魔方（Pyraminx），黑色框架搭配半透明三角面板，内置彩虹LED发出多色光芒，独特几何造型' + PRODUCT_SUFFIX },
+  { name: 'lumi-neo', prompt: '涂鸦艺术3x3智能魔方，表面有青色品红色黄色街头风彩绘图案，边缘有霓虹LED灯效，潮酷时尚设计' + PRODUCT_SUFFIX },
+  { name: 'lumi-go', prompt: '智能围棋棋盘，温暖木纹表面刻有19x19线格，交叉点位置有青色LED小灯点亮，棋盘上摆放几颗黑白棋子，四分之三俯视角度展示棋盘纤薄侧面' + PRODUCT_SUFFIX },
+  { name: 'lumi-go-lite', prompt: '入门智能围棋棋盘，浅色木纹表面13x13较小尺寸线格，LED点发出青绿色柔光，棋盘上摆放几颗棋子，友好亲切的教育感设计' + PRODUCT_SUFFIX },
+  { name: 'lumi-chess', prompt: '智能国际象棋棋盘，深浅交替木纹方格棋盘，部分格子有紫青色LED背光亮起，棋盘上摆放几枚深色金属质感棋子包括王马兵，优雅高端设计' + PRODUCT_SUFFIX },
 ];
 
 const NEWS = [

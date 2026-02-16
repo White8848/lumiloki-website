@@ -23,17 +23,24 @@
   background: var(--color-bg-subtle);
   min-height: 200px;
   overflow: hidden;
+  transition: background var(--transition-slow);
+}
+
+.card:hover .imageWrapper {
+  background: #F0F1F4;
 }
 
 .productImage {
   width: 100%;
   height: 160px;
   object-fit: contain;
-  transition: transform var(--transition-slow);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
+  transition: transform var(--transition-slow), filter var(--transition-slow);
 }
 
 .card:hover .productImage {
   transform: scale(1.03);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
 }
 
 .imagePlaceholder {
