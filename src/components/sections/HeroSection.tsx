@@ -1,32 +1,13 @@
 import { motion } from 'motion/react'
 import GlowButton from '../ui/GlowButton'
-import OptimizedImage from '../ui/OptimizedImage'
 import TypewriterText from '../effects/TypewriterText'
-import heroProduct from '../../assets/images/products/lumi-pro.webp'
 import styles from './HeroSection.module.css'
 
 export default function HeroSection() {
   return (
     <section className={styles.hero}>
+      <div className={styles.overlay} />
       <div className={styles.content}>
-        <motion.div
-          className={styles.productImage}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          <OptimizedImage
-            src={heroProduct}
-            alt="Lumi Pro"
-            className={styles.heroProductImg}
-            fallbackEmoji="🟦"
-            width={400}
-            height={400}
-            priority
-            objectFit="contain"
-          />
-        </motion.div>
-
         <motion.h1
           className={styles.title}
           initial={{ opacity: 0, y: 30 }}
