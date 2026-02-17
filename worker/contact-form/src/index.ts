@@ -13,7 +13,16 @@ interface ContactFormData {
 }
 
 function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  // 限制长度防止 ReDoS 攻击
+  if (email.length > 254) return false
+  // 基础格式检查：包含 @，@ 前后都有内容，@ 后有点
+  const atIndex = email.indexOf('@')
+  if (atIndex < 1 || atIndex === email.length - 1) return false
+  const domain = email.slice(atIndex + 1)
+  if (!domain.includes('.') || domain.startsWith('.') || domain.endsWith('.')) return false
+  // 不允许空格
+  if (email.includes(' ')) return false
+  return true
 }
 
 function validateFormData(data: unknown): ContactFormData {
