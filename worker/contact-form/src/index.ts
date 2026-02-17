@@ -1,0 +1,146 @@
+interface Env {
+  RESEND_API_KEY: string
+  TO_EMAIL: string
+  ALLOWED_ORIGINS: string
+}
+
+interface ContactFormData {
+  name: string
+  email: string
+  phone?: string
+  subject: string
+  message: string
+}
+
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
+function validateFormData(data: unknown): ContactFormData {
+  if (!data || typeof data !== 'object') {
+    throw new Error('无效的表单数据')
+  }
+
+  const form = data as Record<string, unknown>
+
+  if (typeof form.name !== 'string' || !form.name.trim()) {
+    throw new Error('请输入姓名')
+  }
+  if (typeof form.email !== 'string' || !isValidEmail(form.email)) {
+    throw new Error('请输入有效的邮箱地址')
+  }
+  if (typeof form.message !== 'string' || !form.message.trim()) {
+    throw new Error('请输入留言内容')
+  }
+
+  return {
+    name: form.name.trim(),
+    email: form.email.trim(),
+    phone: typeof form.phone === 'string' ? form.phone.trim() : undefined,
+    subject: typeof form.subject === 'string' ? form.subject.trim() : '网站咨询',
+    message: form.message.trim(),
+  }
+}
+
+function getCorsHeaders(origin: string | null, allowedOrigins: string): HeadersInit {
+  const allowed = allowedOrigins.split(',').map(o => o.trim())
+  const isAllowed = origin && allowed.includes(origin)
+
+  return {
+    'Access-Control-Allow-Origin': isAllowed ? origin : allowed[0],
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '86400',
+  }
+}
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const origin = request.headers.get('Origin')
+    const corsHeaders = getCorsHeaders(origin, env.ALLOWED_ORIGINS)
+
+    // 处理 CORS 预检请求
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: corsHeaders })
+    }
+
+    // 只接受 POST 请求
+    if (request.method !== 'POST') {
+      return new Response(
+        JSON.stringify({ error: '只支持 POST 请求' }),
+        { status: 405, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    try {
+      // 解析并验证表单数据
+      const rawData = await request.json()
+      const formData = validateFormData(rawData)
+
+      // 构建邮件内容
+      const emailHtml = `
+        <h2>网站联系表单 - ${formData.subject}</h2>
+        <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">姓名</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${formData.name}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">邮箱</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${formData.email}</td>
+          </tr>
+          ${formData.phone ? `
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">电话</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${formData.phone}</td>
+          </tr>
+          ` : ''}
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">主题</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${formData.subject}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">留言内容</td>
+            <td style="padding: 8px; border: 1px solid #ddd; white-space: pre-wrap;">${formData.message}</td>
+          </tr>
+        </table>
+        <p style="color: #666; font-size: 12px; margin-top: 20px;">
+          此邮件由 Lumiloki 官网联系表单自动发送
+        </p>
+      `
+
+      // 调用 Resend API 发送邮件
+      const resendResponse = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'Lumiloki 官网 <noreply@lumiloki.com>',
+          to: env.TO_EMAIL,
+          reply_to: formData.email,
+          subject: `[官网咨询] ${formData.subject} - ${formData.name}`,
+          html: emailHtml,
+        }),
+      })
+
+      if (!resendResponse.ok) {
+        const errorText = await resendResponse.text()
+        console.error('Resend API error:', errorText)
+        throw new Error('邮件发送失败，请稍后重试')
+      }
+
+      return new Response(
+        JSON.stringify({ success: true, message: '留言已发送，我们会尽快回复您！' }),
+        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    } catch (error) {
+      const message = error instanceof Error ? error.message : '提交失败，请稍后重试'
+      return new Response(
+        JSON.stringify({ error: message }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+  },
+}
