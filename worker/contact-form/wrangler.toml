@@ -2,12 +2,7 @@ name = "lumiloki-contact-form"
 main = "src/index.ts"
 compatibility_date = "2024-12-01"
 
-# Email Sending binding - 需要在 Cloudflare Dashboard 启用 Email Routing
-[[send_email]]
-name = "EMAIL_SENDER"
-
 [vars]
-FROM_EMAIL = "noreply@lumiloki.com"
 TO_EMAIL = "support@lumiloki.com"
 ALLOWED_ORIGINS = "https://libercube.github.io,http://localhost:5173"
 

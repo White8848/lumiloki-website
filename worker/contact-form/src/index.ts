@@ -1,15 +1,7 @@
-import { EmailMessage } from 'cloudflare:email'
-import { createMimeMessage } from 'mimetext'
-
 interface Env {
-  EMAIL_SENDER: SendEmail
-  FROM_EMAIL: string
+  RESEND_API_KEY: string
   TO_EMAIL: string
   ALLOWED_ORIGINS: string
-}
-
-interface SendEmail {
-  send(message: EmailMessage): Promise<void>
 }
 
 interface ContactFormData {
@@ -62,27 +54,6 @@ function getCorsHeaders(origin: string | null, allowedOrigins: string): HeadersI
   }
 }
 
-function buildEmailContent(formData: ContactFormData): string {
-  const phoneRow = formData.phone
-    ? `电话: ${formData.phone}\n`
-    : ''
-
-  return `
-网站联系表单 - ${formData.subject}
-================================
-
-姓名: ${formData.name}
-邮箱: ${formData.email}
-${phoneRow}主题: ${formData.subject}
-
-留言内容:
-${formData.message}
-
---------------------------------
-此邮件由 Lumiloki 官网联系表单自动发送
-`.trim()
-}
-
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const origin = request.headers.get('Origin')
@@ -103,18 +74,55 @@ export default {
       const rawData = await request.json()
       const formData = validateFormData(rawData)
 
-      const msg = createMimeMessage()
-      msg.setSender({ name: 'Lumiloki 官网', addr: env.FROM_EMAIL })
-      msg.setRecipient(env.TO_EMAIL)
-      msg.setSubject(`[官网咨询] ${formData.subject} - ${formData.name}`)
-      msg.setHeader('Reply-To', formData.email)
-      msg.addMessage({
-        contentType: 'text/plain',
-        data: buildEmailContent(formData),
+      const emailHtml = `
+        <h2>网站联系表单 - ${formData.subject}</h2>
+        <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">姓名</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${formData.name}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">邮箱</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${formData.email}</td>
+          </tr>
+          ${formData.phone ? `
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">电话</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${formData.phone}</td>
+          </tr>
+          ` : ''}
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">主题</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${formData.subject}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">留言内容</td>
+            <td style="padding: 8px; border: 1px solid #ddd; white-space: pre-wrap;">${formData.message}</td>
+          </tr>
+        </table>
+        <p style="color: #666; font-size: 12px; margin-top: 20px;">
+          此邮件由 Lumiloki 官网联系表单自动发送
+        </p>
+      `
+
+      const resendResponse = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'Lumiloki 官网 <noreply@lumiloki.com>',
+          to: env.TO_EMAIL,
+          reply_to: formData.email,
+          subject: `[官网咨询] ${formData.subject} - ${formData.name}`,
+          html: emailHtml,
+        }),
       })
 
-      const emailMessage = new EmailMessage(env.FROM_EMAIL, env.TO_EMAIL, msg.asRaw())
-      await env.EMAIL_SENDER.send(emailMessage)
+      if (!resendResponse.ok) {
+        throw new Error('邮件发送失败，请稍后重试')
+      }
 
       return new Response(
         JSON.stringify({ success: true, message: '留言已发送，我们会尽快回复您！' }),
