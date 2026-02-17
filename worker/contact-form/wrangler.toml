@@ -2,12 +2,14 @@ name = "lumiloki-contact-form"
 main = "src/index.ts"
 compatibility_date = "2024-12-01"
 
-# 环境变量（在 Cloudflare 控制台配置，不要提交敏感信息）
-# [vars]
-# TO_EMAIL = "support@lumiloki.com"
-# RESEND_API_KEY = "你的 Resend API Key"
-# ALLOWED_ORIGINS = "https://libercube.github.io,http://localhost:5173"
+# Email Sending binding - 需要在 Cloudflare Dashboard 启用 Email Routing
+[[send_email]]
+name = "EMAIL_SENDER"
 
-# 开发环境配置
+[vars]
+FROM_EMAIL = "noreply@lumiloki.com"
+TO_EMAIL = "support@lumiloki.com"
+ALLOWED_ORIGINS = "https://libercube.github.io,http://localhost:5173"
+
 [dev]
 port = 8787
