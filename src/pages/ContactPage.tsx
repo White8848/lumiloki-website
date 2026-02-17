@@ -8,6 +8,9 @@ import { SOCIAL_LINKS } from '../utils/constants'
 import { cn } from '../utils/cn'
 import styles from './ContactPage.module.css'
 
+// Worker API endpoint - 部署后需更新为实际的 Cloudflare Worker URL
+const WORKER_API_URL = import.meta.env.VITE_CONTACT_API_URL || 'https://lumiloki-contact-form.your-subdomain.workers.dev'
+
 const socialIconMap: Record<string, React.ReactNode> = {
   wechat: <SiWechat />,
   weibo: <SiSinaweibo />,
@@ -40,6 +43,8 @@ export default function ContactPage() {
   })
   const [errors, setErrors] = useState<FormErrors>({})
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {}
@@ -54,10 +59,31 @@ export default function ContactPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    if (validate()) {
+    if (!validate()) return
+
+    setIsSubmitting(true)
+    setSubmitError(null)
+
+    try {
+      const response = await fetch(WORKER_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || '提交失败，请稍后重试')
+      }
+
       setSubmitted(true)
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : '网络错误，请检查网络连接后重试')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -87,6 +113,9 @@ export default function ContactPage() {
             </div>
           ) : (
             <form className={styles.form} onSubmit={handleSubmit}>
+              {submitError && (
+                <div className={styles.submitError}>{submitError}</div>
+              )}
               <div className={styles.formGroup}>
                 <label className={styles.label}>姓名 *</label>
                 <input
@@ -150,8 +179,8 @@ export default function ContactPage() {
                 )}
               </div>
 
-              <GlowButton type="submit" size="large">
-                发送消息
+              <GlowButton type="submit" size="large" disabled={isSubmitting}>
+                {isSubmitting ? '发送中...' : '发送消息'}
               </GlowButton>
             </form>
           )}
@@ -165,7 +194,7 @@ export default function ContactPage() {
                 <span className={styles.infoIcon}>📧</span>
                 <div className={styles.infoContent}>
                   <span className={styles.infoLabel}>邮箱</span>
-                  <span className={styles.infoValue}>hello@lumiloki.com</span>
+                  <span className={styles.infoValue}>support@lumiloki.com</span>
                 </div>
               </div>
               <div className={styles.infoItem}>

@@ -88,6 +88,16 @@
   text-align: center;
 }
 
+.submitError {
+  padding: var(--space-3) var(--space-4);
+  background: rgba(232, 85, 61, 0.08);
+  border: 1px solid rgba(232, 85, 61, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
