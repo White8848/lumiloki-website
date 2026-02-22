@@ -12,6 +12,15 @@ interface ContactFormData {
   message: string
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 function isValidEmail(email: string): boolean {
   // 限制长度防止 ReDoS 攻击
   if (email.length > 254) return false
@@ -84,29 +93,29 @@ export default {
       const formData = validateFormData(rawData)
 
       const emailHtml = `
-        <h2>网站联系表单 - ${formData.subject}</h2>
+        <h2>网站联系表单 - ${escapeHtml(formData.subject)}</h2>
         <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">姓名</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${formData.name}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(formData.name)}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">邮箱</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${formData.email}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(formData.email)}</td>
           </tr>
           ${formData.phone ? `
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">电话</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${formData.phone}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(formData.phone)}</td>
           </tr>
           ` : ''}
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">主题</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${formData.subject}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(formData.subject)}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">留言内容</td>
-            <td style="padding: 8px; border: 1px solid #ddd; white-space: pre-wrap;">${formData.message}</td>
+            <td style="padding: 8px; border: 1px solid #ddd; white-space: pre-wrap;">${escapeHtml(formData.message)}</td>
           </tr>
         </table>
         <p style="color: #666; font-size: 12px; margin-top: 20px;">
